@@ -10,6 +10,7 @@ NB : https://vite.dev/guide/static-deploy
 - Retirer Tailwind
 - Clean le boilerplate du Readme
 - Lister et justifier les choix techniques
+- Plugin eslint pour l'accessibilité
 
 ## Techno utilisées
 
@@ -23,6 +24,7 @@ NB : https://vite.dev/guide/static-deploy
 
 - Prettier
 - Husky
+- Eslint
 
 ### Pour ne pas utiliser X techno ?
 
