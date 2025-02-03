@@ -4,10 +4,30 @@ Resume and sandbox
 
 NB : https://vite.dev/guide/static-deploy
 
-# Todo
+## Todo
 
+- Eslint au dev et build time
 - Retirer Tailwind
+- Clean le boilerplate du Readme
 - Lister et justifier les choix techniques
+
+## Techno utilisées
+
+### Notables
+
+- Vite
+- React
+- React Router Framework mode
+
+### Secondaires
+
+- Prettier
+- Husky
+
+### Pour ne pas utiliser X techno ?
+
+- Next
+- Tailwind
 
 # Welcome to React Router!
 
@@ -29,10 +49,9 @@ A modern, production-ready template for building full-stack React applications u
 
 ### Installation
 
-Install the dependencies:
-
 ```bash
-npm install
+npm install # Install the dependencies
+npm run prepare # Setup precommit hooks for better dev experience
 ```
 
 ### Development
