@@ -40,7 +40,7 @@ npm install
 Start the development server with HMR:
 
 ```bash
-npm run dev
+npm start
 ```
 
 Your application will be available at `http://localhost:5173`.

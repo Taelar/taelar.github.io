@@ -2,11 +2,14 @@
   "name": "taelar.github.io",
   "private": true,
   "type": "module",
+  "engines": {
+    "node": "^20"
+  },
   "scripts": {
+    "start": "react-router dev",
     "build": "react-router build",
-    "dev": "react-router dev",
-    "start": "react-router-serve ./build/server/index.js",
-    "typecheck": "react-router typegen && tsc"
+    "typecheck": "react-router typegen && tsc",
+    "start:prod": "react-router-serve ./build/server/index.js"
   },
   "dependencies": {
     "@react-router/node": "^7.1.3",
