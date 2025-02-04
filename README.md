@@ -6,8 +6,7 @@ NB : https://vite.dev/guide/static-deploy
 
 ## Todo
 
-- Eslint au dev et build time
-- Retirer Tailwind
+- Ajouter un reset CSS ?
 - Clean le boilerplate du Readme
 - Lister et justifier les choix techniques
 - Plugin eslint pour l'accessibilité
@@ -19,6 +18,8 @@ NB : https://vite.dev/guide/static-deploy
 - Vite
 - React
 - React Router Framework mode
+- Sass
+- Modules CSS
 
 ### Secondaires
 
