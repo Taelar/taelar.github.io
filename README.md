@@ -8,6 +8,7 @@ NB : https://vite.dev/guide/static-deploy
 
 - Ajouter un reset CSS ?
 - Clean le boilerplate du Readme
+- Ajouter un lien vers le dépot github
 - Lister et justifier les choix techniques
 - Plugin eslint pour l'accessibilité
 
