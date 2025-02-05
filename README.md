@@ -1,16 +1,46 @@
-# [taelar.github.io](https://taelar.github.io/)
+# [Taelar.github.io](https://taelar.github.io/)
 
-Resume and sandbox
-
-NB : https://vite.dev/guide/static-deploy
+Bienvenue sur mon CV qui sert vaguement de portfolio. Je mets un peu tout et n'importe quoi ici, mais surtout n'importe quoi, je dois bien l'admettre.
 
 ## Todo
 
+Code
+
 - Ajouter un reset CSS ?
-- Clean le boilerplate du Readme
-- Ajouter un lien vers le dépot github
-- Lister et justifier les choix techniques
 - Plugin eslint pour l'accessibilité
+- Ajouter un lien vers le dépot github in app
+
+Readme
+
+- Ajouter un lien vers le design utilisé
+- Lister et justifier les choix techniques
+
+## Installation et utilisation
+
+### Setup local
+
+```sh
+nvm use
+npm install # Installe les dépendances du projet
+npm run husky # Enregistre le pre-commit hook pour l'auto-lint à chaque commmit
+npm start # Démarre le serveur local
+```
+
+L'application est disponible sur `http://localhost:5173`.
+
+### Setup Docker
+
+```sh
+docker build -t taelar.io -f ./docker/Dockerfile.dev .
+docker run --rm -it -p 5173:5173 -v .:/app taelar.io
+```
+
+Alternativement, si node est installé sur votre machine (sur une version compatible avec celle indiquée dans .nvmrc), vous pouvez setup le docker de développement via :
+
+```sh
+npm run docker:dev:build
+npm run docker:dev:run
+```
 
 ## Techno utilisées
 
@@ -28,107 +58,7 @@ NB : https://vite.dev/guide/static-deploy
 - Husky
 - Eslint
 
-### Pour ne pas utiliser X techno ?
+### Pourquoi ne pas utiliser X techno ?
 
 - Next
 - Tailwind
-
-# Welcome to React Router!
-
-A modern, production-ready template for building full-stack React applications using React Router.
-
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/remix-run/react-router-templates/tree/main/default)
-
-## Features
-
-- 🚀 Server-side rendering
-- ⚡️ Hot Module Replacement (HMR)
-- 📦 Asset bundling and optimization
-- 🔄 Data loading and mutations
-- 🔒 TypeScript by default
-- 🎉 TailwindCSS for styling
-- 📖 [React Router docs](https://reactrouter.com/)
-
-## Getting Started
-
-### Installation
-
-```bash
-npm install # Install the dependencies
-npm run prepare # Setup precommit hooks for better dev experience
-```
-
-### Development
-
-Start the development server with HMR:
-
-```bash
-npm start
-```
-
-Your application will be available at `http://localhost:5173`.
-
-## Building for Production
-
-Create a production build:
-
-```bash
-npm run build
-```
-
-## Deployment
-
-### Docker Deployment
-
-This template includes three Dockerfiles optimized for different package managers:
-
-- `Dockerfile` - for npm
-- `Dockerfile.pnpm` - for pnpm
-- `Dockerfile.bun` - for bun
-
-To build and run using Docker:
-
-```bash
-# For npm
-docker build -t my-app .
-
-# For pnpm
-docker build -f Dockerfile.pnpm -t my-app .
-
-# For bun
-docker build -f Dockerfile.bun -t my-app .
-
-# Run the container
-docker run -p 3000:3000 my-app
-```
-
-The containerized application can be deployed to any platform that supports Docker, including:
-
-- AWS ECS
-- Google Cloud Run
-- Azure Container Apps
-- Digital Ocean App Platform
-- Fly.io
-- Railway
-
-### DIY Deployment
-
-If you're familiar with deploying Node applications, the built-in app server is production-ready.
-
-Make sure to deploy the output of `npm run build`
-
-```
-├── package.json
-├── package-lock.json (or pnpm-lock.yaml, or bun.lockb)
-├── build/
-│   ├── client/    # Static assets
-│   └── server/    # Server-side code
-```
-
-## Styling
-
-This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever CSS framework you prefer.
-
----
-
-Built with ❤️ using React Router.
