@@ -1,7 +1,6 @@
 # [Taelar.github.io](https://taelar.github.io/)
 
 Bienvenue sur mon CV qui sert vaguement de portfolio. Je mets un peu tout et n'importe quoi ici, mais surtout n'importe quoi, je dois bien l'admettre.
-Le design a été largement inspiré par [Clean CV Template](https://dribbble.com/shots/21132530-Clean-CV-Template).
 
 ## Todo
 
@@ -58,3 +57,9 @@ docker compose up
 
 - Next
 - Tailwind
+
+## Ressources notables
+
+Le design a été largement inspiré par [Clean CV Template](https://dribbble.com/shots/21132530-Clean-CV-Template).
+
+[CSS Reset](https://www.joshwcomeau.com/css/custom-css-reset/) par Josh Comeau.
