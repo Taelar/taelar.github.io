@@ -6,11 +6,11 @@ Bienvenue sur mon CV qui sert vaguement de portfolio. Je mets un peu tout et n'i
 
 Code
 
-- Ajouter un lien vers le dépot github in app
+- /placeholder/
 
 Readme
 
-- Lister et justifier les choix techniques
+- Justifier les choix techniques
 
 ## Installation et utilisation
 

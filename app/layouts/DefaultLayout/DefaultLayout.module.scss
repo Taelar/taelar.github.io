@@ -1,0 +1,18 @@
+.header {
+	position: fixed;
+
+	background-color: lightgrey;
+	border-radius: 0 0 8px 0;
+
+	@media print {
+		display: none;
+	}
+}
+
+.githubLink {
+	padding: 4px;
+
+	.logo {
+		width: 32px;
+	}
+}
