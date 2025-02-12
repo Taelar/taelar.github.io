@@ -12,9 +12,7 @@
 		"start:prod": "react-router-serve ./build/server/index.js",
 		"husky": "husky",
 		"lint": "eslint .",
-		"format": "prettier -w .",
-		"docker:dev:build": "docker build -t taelar.io -f ./docker/Dockerfile.dev .",
-		"docker:dev:run": "docker run --rm -it -p 5173:5173 -v .:/app taelar.io"
+		"format": "prettier -w ."
 	},
 	"dependencies": {
 		"@react-router/node": "^7.1.3",

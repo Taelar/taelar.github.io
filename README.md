@@ -19,6 +19,8 @@ Readme
 
 ### Setup local
 
+Il est possible de lancer l'application localement, si [NVM](https://github.com/nvm-sh/nvm) est installé sur votre machine :
+
 ```sh
 nvm use
 npm install # Installe les dépendances du projet
@@ -30,16 +32,10 @@ L'application est disponible sur `http://localhost:5173`.
 
 ### Setup Docker
 
-```sh
-docker build -t taelar.io -f ./docker/Dockerfile.dev .
-docker run --rm -it -p 5173:5173 -v .:/app taelar.io
-```
-
-Alternativement, si node est installé sur votre machine (sur une version compatible avec celle indiquée dans .nvmrc), vous pouvez setup le docker de développement via :
+L'application peut aussi être utilisée via Docker (et Docker Compose). Il est possible d'ajouter le flag `--build` pour forcer la recompilation de l'image.
 
 ```sh
-npm run docker:dev:build
-npm run docker:dev:run
+docker compose up
 ```
 
 ## Techno utilisées
