@@ -1,6 +1,7 @@
 # [Taelar.github.io](https://taelar.github.io/)
 
 Bienvenue sur mon CV qui sert vaguement de portfolio. Je mets un peu tout et n'importe quoi ici, mais surtout n'importe quoi, je dois bien l'admettre.
+Le design a été largement inspiré par [Clean CV Template](https://dribbble.com/shots/21132530-Clean-CV-Template).
 
 ## Todo
 
@@ -12,7 +13,6 @@ Code
 
 Readme
 
-- Ajouter un lien vers le design utilisé
 - Lister et justifier les choix techniques
 
 ## Installation et utilisation
