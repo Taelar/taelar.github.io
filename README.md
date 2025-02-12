@@ -6,8 +6,6 @@ Bienvenue sur mon CV qui sert vaguement de portfolio. Je mets un peu tout et n'i
 
 Code
 
-- Ajouter un reset CSS ?
-- Plugin eslint pour l'accessibilité
 - Ajouter un lien vers le dépot github in app
 
 Readme

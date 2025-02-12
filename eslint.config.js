@@ -3,6 +3,7 @@ import pluginJs from '@eslint/js'
 import tseslint from 'typescript-eslint'
 import pluginReact from 'eslint-plugin-react'
 import onlyWarn from 'eslint-plugin-only-warn'
+import jsxA11y from 'eslint-plugin-jsx-a11y'
 
 /** @type {import('eslint').Linter.Config[]} */
 export default [
@@ -25,5 +26,8 @@ export default [
 		rules: {
 			'react/react-in-jsx-scope': 'off',
 		},
+	},
+	{
+		plugins: { jsxA11y },
 	},
 ]
