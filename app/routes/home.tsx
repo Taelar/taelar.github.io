@@ -5,7 +5,7 @@ export function meta() {
 		{ title: 'Thomas Esseul - Développeur' },
 		{
 			name: 'description',
-			content: `Bienvenue sur mon CV qui sert vaguement de portfolio, je mets un peu tout et n'importe quoi ici, mais surtout n'importe quoi.`,
+			content: `Ce site est en développement, ça arrive fort.`,
 		},
 	]
 }

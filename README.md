@@ -6,7 +6,8 @@ Bienvenue sur mon CV qui sert vaguement de portfolio. Je mets un peu tout et n'i
 
 Code
 
-- /placeholder/
+- Responsive, notamment mobile
+- Trouver une alternative au 'width: 794px;' pour mimiquer le format A4
 
 Readme
 

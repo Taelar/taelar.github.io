@@ -1,0 +1,70 @@
+@use 'app/style/variables' as *;
+
+$pagePadding: 48px;
+
+.main {
+	margin-left: auto;
+	margin-right: auto;
+
+	display: flex;
+	max-width: 794px;
+	min-height: 100vh;
+
+	flex-direction: column;
+	background-color: $bgGrey;
+
+	@media print {
+		width: 100%;
+	}
+
+	box-shadow: $shadowMedium;
+}
+
+.header {
+	$bgBreakPoint: 73%;
+	background: linear-gradient(
+		to bottom,
+		$bgDarkBlue $bgBreakPoint,
+		$bgGrey $bgBreakPoint 100%
+	);
+
+	padding: 128px $pagePadding 0;
+	display: grid;
+	grid-template-columns: 2fr 1fr;
+	align-items: end;
+
+	.picture {
+		aspect-ratio: 4/5;
+		height: 290px;
+		object-fit: cover;
+		object-position: center;
+	}
+}
+
+.nameAndContact {
+	.mainTitle {
+		font-size: 86px;
+		font-weight: 700;
+		line-height: 0.9;
+	}
+
+	.subTitle {
+		font-size: 16px;
+		font-weight: 600;
+		padding-bottom: 24px;
+	}
+
+	.mainTitle,
+	.subTitle {
+		text-transform: uppercase;
+	}
+
+	.contact {
+		margin-top: 32px;
+		color: $bgDarkBlue;
+	}
+}
+
+.content {
+	padding: $pagePadding;
+}
