@@ -70,13 +70,6 @@ $pagePadding: 48px;
 		display: flex;
 		flex-direction: column;
 		gap: 24px;
-
-		/* On gonfle légèrement le gap d'une colonne pour améliorer l'alignement des blocs
-			C'est pas idéal mais sur ce genre de projet, le visuel passe avant tout
-		*/
-		&.moreSpace {
-			gap: 33px;
-		}
 	}
 }
 

@@ -88,7 +88,7 @@ export const Resume: FC = () => {
 						</div>
 					</Section>
 				</div>
-				<div className={cx('contentSubContainer', 'moreSpace')}>
+				<div className={cx('contentSubContainer')}>
 					<Section title="Formation">
 						<Card
 							leftTitle="Master Informatique : Ingénierie Logicielle"
