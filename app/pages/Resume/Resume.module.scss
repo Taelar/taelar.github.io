@@ -55,6 +55,11 @@ $pagePadding: 48px;
 		margin-top: 32px;
 		color: $darkBlue;
 	}
+
+	.contactLine {
+		display: flex;
+		gap: 16px;
+	}
 }
 
 .content {

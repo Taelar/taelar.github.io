@@ -2,9 +2,9 @@ import { type FC } from 'react'
 import classNames from 'classnames/bind'
 import styles from './Resume.module.scss'
 import { Section } from '~/components/Section'
-import { LinkedInLink } from '~/components/LinkedInLink'
 import { Card } from '~/components/Card'
 import { ProfilePicture } from '~/components/ProfilePicture'
+import { SocialLink } from '~/components/SocialLink'
 
 const cx = classNames.bind(styles)
 
@@ -18,7 +18,18 @@ export const Resume: FC = () => {
 
 					<div className={cx('contact')}>
 						<Section title="Contact">
-							<LinkedInLink />
+							<div className={cx('contactLine')}>
+								<SocialLink
+									icon="linkedin"
+									label="Thomas Esseul"
+									link="https://www.linkedin.com/in/thomas-esseul-4830a4153/"
+								/>
+								<SocialLink
+									icon="github"
+									label="Taelar"
+									link="https://github.com/Taelar"
+								/>
+							</div>
 						</Section>
 					</div>
 				</div>
