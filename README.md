@@ -7,6 +7,7 @@ Bienvenue sur mon CV qui sert vaguement de portfolio. Je mets un peu tout et n'i
 Code
 
 - Internationnalisation
+- Double check l'accessibilité
 
 Readme
 

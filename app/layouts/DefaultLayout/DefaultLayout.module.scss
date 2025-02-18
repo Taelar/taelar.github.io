@@ -1,8 +1,11 @@
+@use 'app/style/variables' as *;
+
 .header {
 	position: fixed;
 
 	background-color: lightgrey;
 	border-radius: 0 0 8px 0;
+	box-shadow: $shadowMedium;
 
 	@media print {
 		display: none;
