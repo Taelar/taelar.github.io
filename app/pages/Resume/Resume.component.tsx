@@ -31,7 +31,7 @@ export const Resume: FC = () => {
 						<>
 							<Card
 								leftTitle="Développeur Front-end"
-								rightTitle="Follow | Rennes"
+								rightTitle="Follow Health | Rennes"
 								subTitles={[
 									'Depuis Sept 2021',
 									'1 an (alternance) : Sept 2020 - Août 2021',
@@ -102,6 +102,20 @@ export const Resume: FC = () => {
 							leftTitle="DUT Informatique : Ingénierie Logicielle"
 							subTitles={['2016 - 2018']}
 						/>
+					</Section>
+					<Section title="Projets">
+						<Card leftTitle="Gitlab Bot" subTitles={['Follow Health']}>
+							<span>
+								Notifications et automatisations liées aux outils de
+								l&apos;équipe technique (Slack, Gitlab, Jira)
+							</span>
+						</Card>
+						<Card leftTitle="Bot Discord" subTitles={['Projet personnel']}>
+							<span>
+								Bot pour un serveur privé servant à &quot;ajouter de
+								l&apos;ambiance&quot;
+							</span>
+						</Card>
 					</Section>
 				</div>
 			</div>
