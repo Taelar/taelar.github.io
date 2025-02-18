@@ -1,6 +1,7 @@
 @use 'app/style/variables' as *;
 
 .card {
+	position: relative;
 	display: grid;
 	grid-template-columns: 1fr auto;
 
@@ -44,4 +45,14 @@
 		padding: 2px 4px;
 		font-weight: 500;
 	}
+}
+
+.badge {
+	$size: 48px;
+
+	position: absolute;
+	top: 12px;
+	left: calc($size / -2);
+
+	width: $size;
 }
