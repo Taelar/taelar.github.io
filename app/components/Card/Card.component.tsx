@@ -6,7 +6,7 @@ import Badge from './assets/badge.svg'
 export const Card: FC<CardProps> = ({
 	leftTitle,
 	rightTitle,
-	subTitle,
+	subTitles,
 	children,
 	tags,
 }) => {
@@ -15,11 +15,12 @@ export const Card: FC<CardProps> = ({
 			<img className={styles['badge']} src={Badge} />
 			<span className={styles['leftTitle']}>{leftTitle}</span>
 			{rightTitle && <span className={styles['rightTitle']}>{rightTitle}</span>}
-			{subTitle && (
-				<span className={styles['subTitle']}>
-					<i>{subTitle}</i>
+			{subTitles?.map((title, index) => (
+				<span key={index} className={styles['subTitle']}>
+					<i>{title}</i>
 				</span>
-			)}
+			))}
+
 			{children && <span className={styles['content']}>{children}</span>}
 			{tags?.length && (
 				<div className={styles['tags']}>

@@ -32,7 +32,11 @@ export const Resume: FC = () => {
 							<Card
 								leftTitle="Développeur Front-end"
 								rightTitle="Follow | Rennes"
-								subTitle="2020 - Present"
+								subTitles={[
+									'Depuis 2021',
+									'1 an (alternance) : Sept 2020 - Août 2021',
+									'4 mois (stage): Mai 2020 - Août 2020',
+								]}
 								tags={[
 									'React',
 									'Typescript',
@@ -69,7 +73,7 @@ export const Resume: FC = () => {
 							<Card
 								leftTitle="Développeur Web"
 								rightTitle="IMaR | Tralee, Irlande"
-								subTitle="3 mois (stage) : Avril 2018 - Juin 2018"
+								subTitles={['3 mois (stage) : Avril 2018 - Juin 2018']}
 								tags={['PHP', 'Laravel', 'SQL']}
 							>
 								<span>Développement d&apos;un site web e-commerce</span>
@@ -81,10 +85,13 @@ export const Resume: FC = () => {
 					<Section title="Formation">
 						<Card
 							leftTitle="Master Informatique, Ingénierie Logicielle"
-							subTitle="2019 - 2021"
+							subTitles={['2019 - 2021']}
 						/>
-						<Card leftTitle="Licence Informatique" subTitle="2018 - 2019" />
-						<Card leftTitle="DUT Informatique" subTitle="2016 - 2018" />
+						<Card
+							leftTitle="Licence Informatique"
+							subTitles={['2018 - 2019']}
+						/>
+						<Card leftTitle="DUT Informatique" subTitles={['2016 - 2018']} />
 					</Section>
 					<Section title="Langues">
 						<Card leftTitle="Français">Langue Maternelle</Card>
