@@ -5,7 +5,7 @@ import styles from './Section.module.scss'
 export const Section: FC<SectionProps> = ({ title, children }) => {
 	return (
 		<div>
-			<h2 className={styles['title']}>{title}</h2>
+			<h3 className={styles['title']}>{title}</h3>
 			<div className={styles['content']}>{children}</div>
 		</div>
 	)

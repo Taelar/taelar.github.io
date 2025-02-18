@@ -1,3 +1,9 @@
 .title {
-	margin-bottom: 12px;
+	margin-bottom: 18px;
+}
+
+.content {
+	display: flex;
+	flex-direction: column;
+	gap: 18px;
 }

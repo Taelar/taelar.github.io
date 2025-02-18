@@ -1,0 +1,47 @@
+@use 'app/style/variables' as *;
+
+.card {
+	display: grid;
+	grid-template-columns: 1fr auto;
+
+	margin-left: 24px;
+	padding: 18px 24px 18px 36px;
+
+	background-color: $white;
+	font-size: 0.8rem;
+}
+
+.leftTitle,
+.rightTitle {
+	font-weight: 600;
+}
+
+.subTitle {
+	grid-column: span 2;
+	font-size: 0.9em;
+}
+
+.content {
+	grid-column: span 2;
+	margin-top: 4px;
+
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	line-height: 1.1;
+	text-indent: 12px hanging;
+}
+
+.tags {
+	margin-top: 8px;
+	grid-column: span 2;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 4px;
+
+	.tag {
+		background: $grey;
+		padding: 2px 4px;
+		font-weight: 500;
+	}
+}

@@ -5,6 +5,7 @@ import styles from './Resume.module.scss'
 import ProfilePicture from './assets/profile.jpg'
 import { Section } from '~/components/Section'
 import { LinkedInLink } from '~/components/LinkedInLink'
+import { Card } from '~/components/Card'
 
 const cx = classNames.bind(styles)
 
@@ -23,15 +24,76 @@ export const Resume: FC = () => {
 					</div>
 				</div>
 
-				<img className={cx('picture', '')} src={ProfilePicture} alt="Photo" />
+				<img className={cx('picture')} src={ProfilePicture} alt="Photo" />
 			</div>
-			Consectetur eiusmod culpa fugiat ad. Labore consequat elit minim excepteur
-			labore sint. Ea enim cupidatat et duis sunt ex do nisi laborum ex officia
-			Lorem sit. Eu voluptate in cillum est tempor nostrud velit. Ullamco
-			consectetur laborum laboris tempor sint ipsum aliqua in sunt. Ut ad qui
-			amet tempor sit magna magna occaecat proident dolor ut deserunt proident
-			consectetur. Non nisi cillum eiusmod commodo consequat exercitation dolor
-			velit est culpa minim sunt veniam cupidatat.
+
+			<div className={cx('content')}>
+				<div className={cx('contentSubContainer')}>
+					<Section title="Expériences">
+						<>
+							<Card
+								leftTitle="Développeur Front-end"
+								rightTitle="Follow | Rennes"
+								subTitle="2020 - Present"
+								tags={[
+									'React',
+									'Typescript',
+									'Sass',
+									'Redux Sagas',
+									'React-Query',
+									'Jotai',
+									'Gitlab CI',
+									'Tiptap',
+									'Nest.js',
+									'Docker',
+								]}
+							>
+								<span>
+									Développement de fonctionnalités et corrections de bugs, UI
+									design.
+								</span>
+								<span>
+									Entretien et modernisation de la codebase principale vieille
+									de plus de 5 ans, notamment migration de Redux Sagas vers
+									React-Query.
+								</span>
+								<span>Création de micro-service avec Nest.js.</span>
+								<span>
+									Développement d&apos;un éditeur de document avec plugins
+									personnalisés.
+								</span>
+								<span>
+									Uniformisation et modernisation des outils employés sur la
+									stack front-end, notamment gestionnaire de styles et bundler.
+								</span>
+								<span>Optimisation et entretien de la CI</span>
+							</Card>
+							<Card
+								leftTitle="Développeur Web"
+								rightTitle="IMaR | Tralee, Irlande"
+								subTitle="3 mois (stage) : Avril 2018 - Juin 2018"
+								tags={['PHP', 'Laravel', 'SQL']}
+							>
+								<span>Développement d&apos;un site web e-commerce</span>
+							</Card>
+						</>
+					</Section>
+				</div>
+				<div className={cx('contentSubContainer')}>
+					<Section title="Formation">
+						<Card
+							leftTitle="Master Informatique, Ingénierie Logicielle"
+							subTitle="2019 - 2021"
+						/>
+						<Card leftTitle="Licence Informatique" subTitle="2018 - 2019" />
+						<Card leftTitle="DUT Informatique" subTitle="2016 - 2018" />
+					</Section>
+					<Section title="Langues">
+						<Card leftTitle="Français">Langue Maternelle</Card>
+						<Card leftTitle="Anglais">Courant</Card>
+					</Section>
+				</div>
+			</div>
 		</main>
 	)
 }

@@ -11,21 +11,20 @@ $pagePadding: 48px;
 	min-height: 100vh;
 
 	flex-direction: column;
-	background-color: $bgGrey;
+	background-color: $grey;
+	box-shadow: $shadowMedium;
 
 	@media print {
 		width: 100%;
 	}
-
-	box-shadow: $shadowMedium;
 }
 
 .header {
-	$bgBreakPoint: 73%;
+	$bgBreakPoint: 70%;
 	background: linear-gradient(
 		to bottom,
-		$bgDarkBlue $bgBreakPoint,
-		$bgGrey $bgBreakPoint 100%
+		$darkBlue $bgBreakPoint,
+		$grey $bgBreakPoint 100%
 	);
 
 	padding: 128px $pagePadding 0;
@@ -61,10 +60,22 @@ $pagePadding: 48px;
 
 	.contact {
 		margin-top: 32px;
-		color: $bgDarkBlue;
+		color: $darkBlue;
 	}
 }
 
 .content {
+	display: grid;
+	gap: 18px;
+	grid-template-columns: 2fr 1fr;
+	grid-auto-flow: row;
 	padding: $pagePadding;
+
+	color: $darkBlue;
+
+	.contentSubContainer {
+		display: flex;
+		flex-direction: column;
+		gap: 24px;
+	}
 }
