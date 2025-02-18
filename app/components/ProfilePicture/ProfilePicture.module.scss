@@ -1,0 +1,20 @@
+.container {
+	height: 290px;
+	position: relative;
+}
+
+.picture {
+	aspect-ratio: 4/5;
+	height: 100%;
+	object-fit: cover;
+	object-position: center;
+}
+
+.badge {
+	$size: 96px;
+
+	position: absolute;
+	width: $size;
+	top: calc($size / -3);
+	right: calc($size / -3);
+}

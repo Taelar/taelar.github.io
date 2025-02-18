@@ -1,11 +1,10 @@
 import { type FC } from 'react'
 import classNames from 'classnames/bind'
 import styles from './Resume.module.scss'
-// import RaccoonProfilePicture from './assets/profile_raccoon.jpg'
-import ProfilePicture from './assets/profile.jpg'
 import { Section } from '~/components/Section'
 import { LinkedInLink } from '~/components/LinkedInLink'
 import { Card } from '~/components/Card'
+import { ProfilePicture } from '~/components/ProfilePicture'
 
 const cx = classNames.bind(styles)
 
@@ -23,8 +22,7 @@ export const Resume: FC = () => {
 						</Section>
 					</div>
 				</div>
-
-				<img className={cx('picture')} src={ProfilePicture} alt="Photo" />
+				<ProfilePicture />
 			</div>
 
 			<div className={cx('content')}>
