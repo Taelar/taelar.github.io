@@ -1,8 +1,13 @@
 @use 'app/style/variables' as *;
 
 $pagePadding: 48px;
+$reducedPagePadding: 24px;
+
+$widthBreakPoint: 550px;
 
 .main {
+	container-type: inline-size;
+
 	margin-left: auto;
 	margin-right: auto;
 
@@ -31,11 +36,17 @@ $pagePadding: 48px;
 	display: grid;
 	grid-template-columns: 2fr 1fr;
 	align-items: end;
+
+	@container (max-width: #{$widthBreakPoint}) {
+		grid-template-columns: 1fr;
+		padding: 70px $reducedPagePadding $reducedPagePadding;
+		justify-items: center;
+	}
 }
 
 .nameAndContact {
 	.mainTitle {
-		font-size: 86px;
+		font-size: clamp(64px, 10vw, 86px);
 		font-weight: 700;
 		line-height: 0.9;
 	}
@@ -70,6 +81,11 @@ $pagePadding: 48px;
 	padding: 24px $pagePadding $pagePadding;
 
 	color: $darkBlue;
+
+	@container (max-width: #{$widthBreakPoint}) {
+		grid-template-columns: 1fr;
+		padding: $reducedPagePadding $reducedPagePadding;
+	}
 
 	.contentSubContainer {
 		display: flex;
