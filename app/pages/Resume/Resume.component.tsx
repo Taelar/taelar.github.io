@@ -33,7 +33,7 @@ export const Resume: FC = () => {
 								leftTitle="Développeur Front-end"
 								rightTitle="Follow | Rennes"
 								subTitles={[
-									'Depuis 2021',
+									'Depuis Sept 2021',
 									'1 an (alternance) : Sept 2020 - Août 2021',
 									'4 mois (stage): Mai 2020 - Août 2020',
 								]}
@@ -80,6 +80,13 @@ export const Resume: FC = () => {
 							</Card>
 						</>
 					</Section>
+
+					<Section title="Langues">
+						<div className={cx('languages')}>
+							<Card leftTitle="Français">Langue Maternelle</Card>
+							<Card leftTitle="Anglais">Courant</Card>
+						</div>
+					</Section>
 				</div>
 				<div className={cx('contentSubContainer')}>
 					<Section title="Formation">
@@ -92,10 +99,6 @@ export const Resume: FC = () => {
 							subTitles={['2018 - 2019']}
 						/>
 						<Card leftTitle="DUT Informatique" subTitles={['2016 - 2018']} />
-					</Section>
-					<Section title="Langues">
-						<Card leftTitle="Français">Langue Maternelle</Card>
-						<Card leftTitle="Anglais">Courant</Card>
 					</Section>
 				</div>
 			</div>

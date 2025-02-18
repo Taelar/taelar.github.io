@@ -11,7 +11,7 @@ export const LinkedInLink: FC = () => {
 			rel="noreferrer"
 		>
 			<LinkedInLogo />
-			<span>Linkedin</span>
+			<span>Thomas Esseul</span>
 		</a>
 	)
 }

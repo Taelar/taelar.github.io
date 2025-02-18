@@ -20,14 +20,14 @@ $pagePadding: 48px;
 }
 
 .header {
-	$bgBreakPoint: 70%;
+	$bgBreakPoint: 65%;
 	background: linear-gradient(
 		to bottom,
 		$darkBlue $bgBreakPoint,
 		$grey $bgBreakPoint 100%
 	);
 
-	padding: 128px $pagePadding 0;
+	padding: 70px $pagePadding 0;
 	display: grid;
 	grid-template-columns: 2fr 1fr;
 	align-items: end;
@@ -62,7 +62,7 @@ $pagePadding: 48px;
 	gap: 18px;
 	grid-template-columns: 2fr 1fr;
 	grid-auto-flow: row;
-	padding: $pagePadding;
+	padding: 24px $pagePadding $pagePadding;
 
 	color: $darkBlue;
 
@@ -71,4 +71,11 @@ $pagePadding: 48px;
 		flex-direction: column;
 		gap: 24px;
 	}
+}
+
+.languages {
+	display: grid;
+	grid-auto-flow: column;
+	grid-template-columns: 1fr 1fr;
+	gap: 18px;
 }
