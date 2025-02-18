@@ -17,4 +17,5 @@
 	width: $size;
 	top: calc($size / -3);
 	right: calc($size / -3);
+	user-select: none;
 }

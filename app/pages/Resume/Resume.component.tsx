@@ -52,23 +52,23 @@ export const Resume: FC = () => {
 							>
 								<span>
 									Développement de fonctionnalités et corrections de bugs, UI
-									design.
+									design
 								</span>
 								<span>
-									Entretien et modernisation de la codebase principale vieille
-									de plus de 5 ans, notamment migration de Redux Sagas vers
-									React-Query.
+									Entretien et modernisation de la codebase principale,
+									notamment migration de Redux Sagas vers React-Query
 								</span>
-								<span>Création de micro-service avec Nest.js.</span>
+								<span>Amélioration des processus d&apos;équipe</span>
 								<span>
 									Développement d&apos;un éditeur de document avec plugins
-									personnalisés.
+									personnalisés
 								</span>
 								<span>
-									Uniformisation et modernisation des outils employés sur la
-									stack front-end, notamment gestionnaire de styles et bundler.
+									Uniformisation et modernisation des outils de la stack
+									front-end
 								</span>
 								<span>Optimisation et entretien de la CI</span>
+								<span>Création de micro-service avec Nest.js</span>
 							</Card>
 							<Card
 								leftTitle="Développeur Web"
@@ -91,14 +91,17 @@ export const Resume: FC = () => {
 				<div className={cx('contentSubContainer')}>
 					<Section title="Formation">
 						<Card
-							leftTitle="Master Informatique, Ingénierie Logicielle"
+							leftTitle="Master Informatique : Ingénierie Logicielle"
 							subTitles={['2019 - 2021']}
 						/>
 						<Card
 							leftTitle="Licence Informatique"
 							subTitles={['2018 - 2019']}
 						/>
-						<Card leftTitle="DUT Informatique" subTitles={['2016 - 2018']} />
+						<Card
+							leftTitle="DUT Informatique : Ingénierie Logicielle"
+							subTitles={['2016 - 2018']}
+						/>
 					</Section>
 				</div>
 			</div>
