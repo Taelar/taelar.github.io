@@ -62,7 +62,7 @@ export const Resume: FC = () => {
 								]}
 							>
 								<span>
-									Développement de fonctionnalités et corrections de bugs, UI
+									Développement de fonctionnalités, corrections de bugs, UI
 									design
 								</span>
 								<span>
