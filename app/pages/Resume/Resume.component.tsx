@@ -29,6 +29,11 @@ export const Resume: FC = () => {
 									label="Taelar"
 									link="https://github.com/Taelar"
 								/>
+								<SocialLink
+									icon="website"
+									label="taelar.github.io"
+									link="https://taelar.github.io/"
+								/>
 							</div>
 						</Section>
 					</div>
