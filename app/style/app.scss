@@ -4,7 +4,7 @@
 	initial-value: 0deg;
 }
 
-@keyframes color-change {
+@keyframes angle-rotate {
 	from {
 		--bg-gradient-angle: 0deg;
 	}
@@ -31,15 +31,18 @@ body {
 
 		opacity: 0.5;
 
-		@supports (background: linear-gradient(in oklch, #fff, #fff)) {
-			background: conic-gradient(
-				from var(--bg-gradient-angle),
-				purple,
-				blue,
-				purple
-			);
+		--color-space: ;
+		background: conic-gradient(
+			from var(--bg-gradient-angle) var(--color-space),
+			purple,
+			blue,
+			purple
+		);
 
-			animation: color-change 30s linear infinite;
+		animation: angle-rotate 30s linear infinite;
+
+		@supports (background: linear-gradient(in oklch, #fff, #fff)) {
+			--color-space: in oklch;
 		}
 	}
 }
