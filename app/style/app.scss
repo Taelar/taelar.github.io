@@ -1,9 +1,114 @@
-html,
+@property --border1 {
+	syntax: '<percentage>';
+	inherits: false;
+	initial-value: 100%;
+}
+@property --border2 {
+	syntax: '<percentage>';
+	inherits: false;
+	initial-value: 100%;
+}
+@property --border3 {
+	syntax: '<percentage>';
+	inherits: false;
+	initial-value: 100%;
+}
+
+$color1: green;
+$color2: blue;
+$color3: purple;
+$color4: hotpink;
+
+@property --min {
+	syntax: '<percentage>';
+	inherits: false;
+	initial-value: -100%;
+}
+@property --max {
+	syntax: '<percentage>';
+	inherits: false;
+	initial-value: 200%;
+}
+
+@keyframes color-change {
+	from {
+		--border1: var(--max);
+		--border2: var(--max);
+		--border3: var(--max);
+	}
+
+	15% {
+		--border1: var(--min);
+		--border2: var(--max);
+		--border3: var(--max);
+	}
+
+	30% {
+		--border1: var(--min);
+		--border2: var(--min);
+		--border3: var(--max);
+	}
+
+	45% {
+		--border1: var(--min);
+		--border2: var(--min);
+		--border3: var(--min);
+	}
+
+	60% {
+		--border1: var(--min);
+		--border2: var(--min);
+		--border3: var(--max);
+	}
+
+	75% {
+		--border1: var(--min);
+		--border2: var(--max);
+		--border3: var(--max);
+	}
+
+	to {
+		--border1: var(--max);
+		--border2: var(--max);
+		--border3: var(--max);
+	}
+}
+
 body {
 	font-family: 'Inter', ui-sans-serif, system-ui, sans-serif,
 		'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 	background: center / cover url('/background.png') no-repeat;
 	color: white;
+
+	&::after {
+		position: fixed;
+		display: block;
+		content: '';
+		width: 100vw;
+		height: 100vh;
+
+		opacity: 0.5;
+
+		z-index: -1;
+
+		top: 0;
+		left: 0;
+
+		@supports (background: linear-gradient(in oklch, #fff, #fff)) {
+			background: linear-gradient(
+				45deg in oklch,
+				$color1,
+				var(--border1),
+				$color2,
+				var(--border2),
+				$color3,
+				var(--border3),
+				$color4
+			);
+
+			animation: color-change 15s linear infinite alternate;
+		}
+	}
 }
 
 .error_boundary {
