@@ -31,19 +31,17 @@ body {
 
 		opacity: 0.5;
 
-		--color-space: ;
 		background: conic-gradient(
-			from var(--bg-gradient-angle) var(--color-space),
+			from var(--bg-gradient-angle),
 			purple,
+			blue,
+			teal,
+			teal,
 			blue,
 			purple
 		);
 
-		animation: angle-rotate 30s linear infinite;
-
-		@supports (background: linear-gradient(in oklch, #fff, #fff)) {
-			--color-space: in oklch;
-		}
+		animation: angle-rotate 50s linear infinite;
 	}
 }
 
