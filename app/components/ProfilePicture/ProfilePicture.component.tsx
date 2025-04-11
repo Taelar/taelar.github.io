@@ -7,8 +7,8 @@ import Badge from './assets/badge.svg'
 export const ProfilePicture: FC = () => {
 	return (
 		<div className={styles['container']}>
-			<img className={styles['picture']} src={Picture} alt="Photo" />
-			<img className={styles['badge']} src={Badge} alt="Photo Badge" />
+			<img className={styles['picture']} src={Picture} alt="Thomas Esseul" />
+			<img className={styles['badge']} src={Badge} alt="" />
 		</div>
 	)
 }

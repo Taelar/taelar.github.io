@@ -12,7 +12,7 @@ export const Card: FC<CardProps> = ({
 }) => {
 	return (
 		<div className={styles['card']}>
-			<img className={styles['badge']} src={Badge} />
+			<img className={styles['badge']} src={Badge} alt="" />
 			<span className={styles['leftTitle']}>{leftTitle}</span>
 			{rightTitle && <span className={styles['rightTitle']}>{rightTitle}</span>}
 			{subTitles?.map((title, index) => (

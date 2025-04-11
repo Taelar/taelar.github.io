@@ -9,7 +9,16 @@ import jsxA11y from 'eslint-plugin-jsx-a11y'
 export default [
 	{ files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'] },
 	{ ignores: ['dist/*', '.react-router/*'] },
-	{ languageOptions: { globals: globals.browser } },
+	{
+		languageOptions: {
+			globals: globals.browser,
+			parserOptions: {
+				ecmaFeatures: {
+					jsx: true,
+				},
+			},
+		},
+	},
 	{
 		settings: {
 			react: {
@@ -21,13 +30,11 @@ export default [
 	pluginJs.configs.recommended,
 	...tseslint.configs.recommended,
 	pluginReact.configs.flat.recommended,
+	jsxA11y.flatConfigs.strict,
 	{
 		plugins: { onlyWarn },
 		rules: {
 			'react/react-in-jsx-scope': 'off',
 		},
-	},
-	{
-		plugins: { jsxA11y },
 	},
 ]
