@@ -9,6 +9,17 @@
 	height: 100%;
 	object-fit: cover;
 	object-position: center;
+
+	&.easterEgg {
+		opacity: 0;
+		top: 0;
+		position: absolute;
+
+		&:hover {
+			transition: linear 5s opacity;
+			opacity: 1;
+		}
+	}
 }
 
 .badge {
