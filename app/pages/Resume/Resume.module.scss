@@ -25,11 +25,11 @@ $widthBreakPoint: 550px;
 }
 
 .header {
-	$bgBreakPoint: 65%;
+	--bg-breakpoint: 65%;
 	background: linear-gradient(
 		to bottom,
-		$darkBlue $bgBreakPoint,
-		$grey $bgBreakPoint 100%
+		$darkBlue var(--bg-breakpoint),
+		$grey var(--bg-breakpoint) 100%
 	);
 
 	padding: 70px $pagePadding 0;
@@ -38,6 +38,9 @@ $widthBreakPoint: 550px;
 	align-items: end;
 
 	@container (max-width: #{$widthBreakPoint}) {
+		--bg-breakpoint: 200px;
+
+		gap: 48px 0;
 		grid-template-columns: 1fr;
 		padding: 70px $reducedPagePadding $reducedPagePadding;
 		justify-items: center;
@@ -70,6 +73,10 @@ $widthBreakPoint: 550px;
 	.contactLine {
 		display: flex;
 		gap: 16px;
+
+		@container (max-width: #{$widthBreakPoint}) {
+			flex-wrap: wrap;
+		}
 	}
 }
 
