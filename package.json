@@ -102,6 +102,10 @@
 					"name": "version",
 					"semver": null
 				}
+			],
+			"skipQuestions": [
+				"breaking",
+				"issues"
 			]
 		}
 	}
