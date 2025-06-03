@@ -33,6 +33,7 @@
 		"@types/react-dom": "^19.0.1",
 		"commitizen": "^4.3.1",
 		"cz-conventional-changelog": "^3.3.0",
+		"cz-emoji": "^1.3.2-canary.2",
 		"eslint": "^9.20.1",
 		"eslint-plugin-jsx-a11y": "^6.10.2",
 		"eslint-plugin-only-warn": "^1.1.0",
@@ -49,7 +50,59 @@
 	},
 	"config": {
 		"commitizen": {
-			"path": "./node_modules/cz-conventional-changelog"
+			"path": "cz-emoji"
+		},
+		"cz-emoji": {
+			"types": [
+				{
+					"emoji": "✨",
+					"entity": "&#x2728;",
+					"code": ":sparkles:",
+					"description": "Introduce new features.",
+					"name": "feat",
+					"semver": "minor"
+				},
+				{
+					"emoji": "🐛",
+					"entity": "&#x1f41b;",
+					"code": ":bug:",
+					"description": "Fix a bug.",
+					"name": "fix",
+					"semver": "patch"
+				},
+				{
+					"emoji": "✅",
+					"entity": "&#x2705;",
+					"code": ":white_check_mark:",
+					"description": "Add, update, or pass tests.",
+					"name": "test",
+					"semver": null
+				},
+				{
+					"emoji": "💚",
+					"entity": "&#x1f49a;",
+					"code": ":green_heart:",
+					"description": "Changes to the build process or auxiliary tools and libraries",
+					"name": "chore",
+					"semver": null
+				},
+				{
+					"emoji": "♻️",
+					"entity": "&#x267b;",
+					"code": ":recycle:",
+					"description": "Refactor code.",
+					"name": "refactor",
+					"semver": null
+				},
+				{
+					"emoji": "🔖",
+					"entity": "&#x1f516;",
+					"code": ":bookmark:",
+					"description": "Release / Version tags.",
+					"name": "version",
+					"semver": null
+				}
+			]
 		}
 	}
 }
