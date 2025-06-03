@@ -67,22 +67,24 @@ export const Resume: FC = () => {
 								]}
 							>
 								<span>
-									Développement de fonctionnalités, corrections de bugs, UI
-									design
+									Ajout de fonctionnalités, corrections de bugs, UI design
 								</span>
 								<span>
-									Entretien et modernisation de la codebase principale,
-									notamment migration de Redux Sagas vers React-Query
+									Entretien et modernisation de la codebase principale
 								</span>
-								<span>Amélioration des processus d&apos;équipe</span>
+								<span>
+									Consignation, évaluation et réduction de la dette technique
+								</span>
+								<span>
+									Participation à l&apos;amélioration des processus
+									d&apos;équipe
+								</span>
 								<span>
 									Développement d&apos;un éditeur de document avec plugins
 									personnalisés
 								</span>
-								<span>
-									Uniformisation et modernisation des outils de la stack
-									front-end
-								</span>
+								<span>Rendu de documents PDF dynamiques</span>
+								<span>Migration de Redux Sagas vers React-Query</span>
 								<span>Optimisation et entretien de la CI</span>
 								<span>Création de micro-service avec Nest.js</span>
 							</Card>
