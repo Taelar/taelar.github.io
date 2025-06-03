@@ -12,7 +12,8 @@
 		"start:prod": "react-router-serve ./build/server/index.js",
 		"husky": "husky",
 		"lint": "eslint .",
-		"format": "prettier -w ."
+		"format": "prettier -w .",
+		"commit": "cz"
 	},
 	"dependencies": {
 		"@react-router/node": "^7.6.0",
@@ -30,6 +31,8 @@
 		"@types/node": "^20",
 		"@types/react": "^19.0.1",
 		"@types/react-dom": "^19.0.1",
+		"commitizen": "^4.3.1",
+		"cz-conventional-changelog": "^3.3.0",
 		"eslint": "^9.20.1",
 		"eslint-plugin-jsx-a11y": "^6.10.2",
 		"eslint-plugin-only-warn": "^1.1.0",
@@ -43,5 +46,10 @@
 		"typescript-eslint": "^8.22.0",
 		"vite": "^6.3.5",
 		"vite-tsconfig-paths": "^5.1.4"
+	},
+	"config": {
+		"commitizen": {
+			"path": "./node_modules/cz-conventional-changelog"
+		}
 	}
 }

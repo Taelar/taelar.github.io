@@ -6,8 +6,6 @@ Bienvenue sur mon CV qui sert vaguement de portfolio. Je mets un peu tout et n'i
 
 Code
 
-- Commitizen
-- Internationnalisation
 - Double check l'accessibilité
 - Watermark "Générée via ..." à l'impression
 
