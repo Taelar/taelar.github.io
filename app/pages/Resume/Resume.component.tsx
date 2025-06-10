@@ -5,6 +5,7 @@ import { Section } from '~/components/Section'
 import { Card } from '~/components/Card'
 import { ProfilePicture } from '~/components/ProfilePicture'
 import { SocialLink } from '~/components/SocialLink'
+import { WaterCanvas } from '~/components/WaterCanvas'
 
 const cx = classNames.bind(styles)
 
@@ -137,6 +138,7 @@ export const Resume: FC = () => {
 					</Section>
 				</div>
 			</div>
+			<WaterCanvas />
 		</main>
 	)
 }
