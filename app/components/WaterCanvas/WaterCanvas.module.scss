@@ -1,0 +1,12 @@
+@use '~/style/variables' as *;
+
+.waterCanvas {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: $zIndexBackground;
+
+	@media print {
+		display: none;
+	}
+}

@@ -5,6 +5,7 @@ import {
 	simulationFragmentShader,
 	simulationVertexShader,
 } from './WaterCanvas.shaders'
+import styles from './WaterCanvas.module.scss'
 
 export const initWaterCanvas = () => {
 	const scene = new THREE.Scene()
@@ -19,6 +20,7 @@ export const initWaterCanvas = () => {
 	})
 	renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
 	renderer.setSize(window.innerWidth, window.innerHeight)
+	renderer.domElement.className = styles['waterCanvas']
 	document.body.appendChild(renderer.domElement)
 
 	const mouse = new THREE.Vector2()
@@ -75,8 +77,6 @@ export const initWaterCanvas = () => {
 
 	if (!ctx) return
 
-	ctx.fillStyle = '#fb7427'
-	ctx.fillRect(0, 0, width, height)
 	ctx.imageSmoothingEnabled = true
 	ctx.imageSmoothingQuality = 'high'
 
@@ -91,15 +91,13 @@ export const initWaterCanvas = () => {
 
 		canvas.width = newWidth
 		canvas.height = newHeight
-		ctx.fillStyle = '#fb7427'
-		ctx.fillRect(0, 0, width, height)
 	})
 
 	renderer.domElement.addEventListener('mousedown', (event) => {
 		mouse.x = event.clientX * window.devicePixelRatio
 		mouse.y = (window.innerHeight - event.clientY) * window.devicePixelRatio
 	})
-	renderer.domElement.addEventListener('mouseup', (event) => {
+	renderer.domElement.addEventListener('mouseup', () => {
 		mouse.x = 0
 		mouse.y = 0
 	})
