@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useCallback, useEffect, useRef } from 'react'
 import { initWaterCanvas } from './useWaterCanvas.animation'
 import { randInt } from '~/utils/number.utils'
 
@@ -8,11 +8,23 @@ export const useWaterCanvas = () => {
 	const animationRef = useRef<ReturnType<typeof initWaterCanvas>>(undefined)
 	const intervalRef = useRef<NodeJS.Timeout>(undefined)
 
-	useEffect(() => {
+	const init = useCallback(() => {
 		if (!animationRef.current) {
 			animationRef.current = initWaterCanvas()
 		}
 	}, [])
+
+	const destroy = useCallback(() => {
+		animationRef.current?.destroy()
+	}, [])
+
+	useEffect(() => {
+		init()
+
+		return () => {
+			destroy()
+		}
+	}, [init, destroy])
 
 	useEffect(() => {
 		intervalRef.current = setInterval(() => {
@@ -31,7 +43,11 @@ export const useWaterCanvas = () => {
 				animationRef.current?.endWaterRippleRendering()
 			}, timeout)
 		}, RANDOM_RIPPLES_INTERVAL)
+
+		return () => {
+			clearInterval(intervalRef.current)
+		}
 	}, [])
 
-	return { animation: animationRef.current }
+	return { init, destroy, isActive: !!animationRef.current }
 }

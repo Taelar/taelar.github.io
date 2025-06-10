@@ -141,5 +141,9 @@ export const initWaterCanvas = () => {
 
 	animate()
 
-	return { renderWaterRipple, endWaterRippleRendering }
+	const destroy = () => {
+		renderer.domElement.remove()
+	}
+
+	return { renderWaterRipple, endWaterRippleRendering, destroy }
 }
