@@ -4,6 +4,7 @@ import tseslint from 'typescript-eslint'
 import pluginReact from 'eslint-plugin-react'
 import onlyWarn from 'eslint-plugin-only-warn'
 import jsxA11y from 'eslint-plugin-jsx-a11y'
+import reactHooks from 'eslint-plugin-react-hooks'
 
 /** @type {import('eslint').Linter.Config[]} */
 export default [
@@ -31,6 +32,7 @@ export default [
 	...tseslint.configs.recommended,
 	pluginReact.configs.flat.recommended,
 	jsxA11y.flatConfigs.strict,
+	reactHooks.configs['recommended-latest'],
 	{
 		plugins: { onlyWarn },
 		rules: {

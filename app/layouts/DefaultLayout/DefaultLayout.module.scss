@@ -2,10 +2,18 @@
 
 .header {
 	position: fixed;
+	z-index: $zIndexMainContent;
 
-	background-color: lightgrey;
-	border-radius: 0 0 8px 0;
-	box-shadow: $shadowMedium;
+	@media print {
+		display: none;
+	}
+}
+
+.footer {
+	position: fixed;
+	z-index: $zIndexMainContent;
+
+	bottom: 0;
 
 	@media print {
 		display: none;
@@ -13,6 +21,10 @@
 }
 
 .githubLink {
+	background-color: lightgrey;
+	border-radius: 0 0 8px 0;
+	box-shadow: $shadowMedium;
+
 	display: block;
 	padding: 4px;
 

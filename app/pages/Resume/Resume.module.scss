@@ -6,6 +6,8 @@ $reducedPagePadding: 24px;
 $widthBreakPoint: 550px;
 
 .main {
+	position: relative;
+	z-index: $zIndexMainContent;
 	container-type: inline-size;
 
 	margin-left: auto;

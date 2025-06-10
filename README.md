@@ -77,3 +77,5 @@ Une chaîne d'outils très courantes pour garantir de bonnes pratiques de dével
 Le design a été largement inspiré par [Clean CV Template](https://dribbble.com/shots/21132530-Clean-CV-Template).
 
 [CSS Reset](https://www.joshwcomeau.com/css/custom-css-reset/) par Josh Comeau.
+
+[Water Ripples Effect](https://www.youtube.com/watch?v=DncmUVn1Yfg) par Codegrid.

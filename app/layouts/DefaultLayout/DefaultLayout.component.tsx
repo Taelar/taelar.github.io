@@ -2,8 +2,11 @@ import { type FC } from 'react'
 import styles from './DefaultLayout.module.scss'
 import { Outlet } from 'react-router'
 import githubLogo from './assets/github.svg'
+import { useWaterCanvas } from '~/hooks/useWaterCanvas'
 
 const DefaultLayout: FC = () => {
+	const { ripplesInterval, setRipplesInterval } = useWaterCanvas()
+
 	return (
 		<>
 			<header className={styles['header']}>
@@ -17,6 +20,22 @@ const DefaultLayout: FC = () => {
 				</a>
 			</header>
 			<Outlet />
+			<footer className={styles['footer']}>
+				<select
+					value={ripplesInterval}
+					title="Fréquence des ondulations"
+					onChange={(event) => {
+						const parsed = Number.parseInt(event.currentTarget.value)
+						if (!Number.isInteger(parsed)) return
+						setRipplesInterval(parsed)
+					}}
+				>
+					<option value="50">Chaos</option>
+					<option value="500">Rapide</option>
+					<option value="2000">Moyen</option>
+					<option value="5000">Lent</option>
+				</select>
+			</footer>
 		</>
 	)
 }
