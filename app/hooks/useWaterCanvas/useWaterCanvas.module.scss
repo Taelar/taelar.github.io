@@ -5,8 +5,13 @@
 	top: 0;
 	left: 0;
 	z-index: $zIndexBackground;
+	cursor: pointer;
 
 	@media print {
+		display: none;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
 		display: none;
 	}
 }

@@ -7,6 +7,11 @@ import {
 } from './useWaterCanvas.shaders'
 import styles from './useWaterCanvas.module.scss'
 
+type BoundedCoordCallback = (
+	width: number,
+	height: number,
+) => { x: number; y: number }
+
 export const initWaterCanvas = () => {
 	const scene = new THREE.Scene()
 	const simScene = new THREE.Scene()
@@ -95,14 +100,24 @@ export const initWaterCanvas = () => {
 		canvas.height = newHeight
 	})
 
-	renderer.domElement.addEventListener('mousedown', (event) => {
-		mouse.x = event.clientX * window.devicePixelRatio
-		mouse.y = (window.innerHeight - event.clientY) * window.devicePixelRatio
-	})
-	renderer.domElement.addEventListener('mouseup', () => {
+	const renderWaterRipple = (callback: BoundedCoordCallback) => {
+		const { x, y } = callback(canvas.width, canvas.height)
+		mouse.x = x
+		mouse.y = y
+	}
+
+	const endWaterRippleRendering = () => {
 		mouse.x = 0
 		mouse.y = 0
+	}
+
+	renderer.domElement.addEventListener('mousedown', (event) => {
+		const x = event.clientX * window.devicePixelRatio
+		const y = (window.innerHeight - event.clientY) * window.devicePixelRatio
+
+		renderWaterRipple(() => ({ x, y }))
 	})
+	renderer.domElement.addEventListener('mouseup', endWaterRippleRendering)
 
 	const animate = () => {
 		simMaterial.uniforms.frame.value = frame++
@@ -126,5 +141,5 @@ export const initWaterCanvas = () => {
 
 	animate()
 
-	return {}
+	return { renderWaterRipple, endWaterRippleRendering }
 }
