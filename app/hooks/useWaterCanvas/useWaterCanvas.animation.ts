@@ -4,8 +4,8 @@ import {
 	renderVertexShader,
 	simulationFragmentShader,
 	simulationVertexShader,
-} from './WaterCanvas.shaders'
-import styles from './WaterCanvas.module.scss'
+} from './useWaterCanvas.shaders'
+import styles from './useWaterCanvas.module.scss'
 
 export const initWaterCanvas = () => {
 	const scene = new THREE.Scene()
@@ -21,6 +21,8 @@ export const initWaterCanvas = () => {
 	renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
 	renderer.setSize(window.innerWidth, window.innerHeight)
 	renderer.domElement.className = styles['waterCanvas']
+
+	if (!document) return
 	document.body.appendChild(renderer.domElement)
 
 	const mouse = new THREE.Vector2()
@@ -111,7 +113,7 @@ export const initWaterCanvas = () => {
 		renderer.render(simScene, camera)
 
 		renderMaterial.uniforms.textureA.value = rtB.texture
-		// renderMaterial.uniforms.textureB.value = rtB.texture
+		renderMaterial.uniforms.textureB.value = rtB.texture
 		renderer.setRenderTarget(null)
 		renderer.render(scene, camera)
 
@@ -123,4 +125,6 @@ export const initWaterCanvas = () => {
 	}
 
 	animate()
+
+	return {}
 }
