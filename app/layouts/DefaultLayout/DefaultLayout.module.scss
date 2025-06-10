@@ -2,6 +2,7 @@
 
 .header {
 	position: fixed;
+	z-index: $zIndexMainContent;
 
 	background-color: lightgrey;
 	border-radius: 0 0 8px 0;

@@ -5,13 +5,10 @@ import { Section } from '~/components/Section'
 import { Card } from '~/components/Card'
 import { ProfilePicture } from '~/components/ProfilePicture'
 import { SocialLink } from '~/components/SocialLink'
-import { useWaterCanvas } from '~/hooks/useWaterCanvas'
 
 const cx = classNames.bind(styles)
 
 export const Resume: FC = () => {
-	useWaterCanvas()
-
 	return (
 		<main className={cx('main')}>
 			<div className={cx('header')}>
