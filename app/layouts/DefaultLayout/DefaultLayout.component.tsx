@@ -18,21 +18,24 @@ const DefaultLayout: FC = () => {
 				>
 					<img className={styles['logo']} src={githubLogo} alt="Dépôt Github" />
 				</a>
+			</header>
+			<Outlet />
+			<footer className={styles['footer']}>
 				<select
+					value={ripplesInterval}
+					title="Fréquence des ondulations"
 					onChange={(event) => {
 						const parsed = Number.parseInt(event.currentTarget.value)
 						if (!Number.isInteger(parsed)) return
 						setRipplesInterval(parsed)
 					}}
-					value={ripplesInterval}
 				>
-					<option value="50">50</option>
-					<option value="500">500</option>
-					<option value="2000">2000</option>
-					<option value="5000">5000</option>
+					<option value="50">Chaos</option>
+					<option value="500">Rapide</option>
+					<option value="2000">Moyen</option>
+					<option value="5000">Lent</option>
 				</select>
-			</header>
-			<Outlet />
+			</footer>
 		</>
 	)
 }

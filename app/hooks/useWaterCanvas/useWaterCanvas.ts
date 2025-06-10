@@ -6,7 +6,7 @@ export const useWaterCanvas = () => {
 	const animationRef = useRef<ReturnType<typeof initWaterCanvas>>(undefined)
 	const intervalRef = useRef<NodeJS.Timeout>(undefined)
 
-	const [ripplesInterval, setRipplesInterval] = useState(50)
+	const [ripplesInterval, setRipplesInterval] = useState(2000)
 
 	useEffect(() => {
 		if (!animationRef.current) {
