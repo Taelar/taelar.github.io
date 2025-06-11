@@ -1,0 +1,46 @@
+@use '~/style/variables' as *;
+
+@property --banner-bg-color {
+	syntax: '<color>';
+	initial-value: white;
+}
+
+@property --banner-line-color {
+	syntax: '<color>';
+	initial-value: black;
+}
+
+.container {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.bookmark {
+	width: 50px;
+	height: auto;
+
+	.background {
+		fill: var(--banner-bg-color);
+	}
+
+	.line {
+		stroke: var(--banner-line-color);
+	}
+
+	&.light {
+		--banner-bg-color: #{$fontColorTitle};
+		--banner-line-color: #{$darkBlue};
+	}
+
+	&.dark {
+		--banner-bg-color: #{$darkBlue};
+		--banner-line-color: #{$fontColorTitle};
+	}
+}
+
+.content {
+	position: absolute;
+	padding-bottom: 25%;
+}

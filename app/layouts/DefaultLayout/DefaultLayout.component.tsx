@@ -1,8 +1,9 @@
 import { type FC } from 'react'
 import styles from './DefaultLayout.module.scss'
 import { Outlet } from 'react-router'
-import githubLogo from './assets/github.svg'
 import { useWaterCanvas } from '~/hooks/useWaterCanvas'
+import { Icon } from '~/components/Icon'
+import { IconBookmark } from '~/components/IconBookmark'
 
 const DefaultLayout: FC = () => {
 	const { ripplesInterval, setRipplesInterval } = useWaterCanvas()
@@ -15,8 +16,11 @@ const DefaultLayout: FC = () => {
 					target="_blank"
 					rel="noreferrer"
 					href="https://github.com/Taelar/taelar.github.io"
+					title="Dépôt Github"
 				>
-					<img className={styles['logo']} src={githubLogo} alt="Dépôt Github" />
+					<IconBookmark theme="dark">
+						<Icon icon="github" additionnalClassNames={styles['logo']} />
+					</IconBookmark>
 				</a>
 			</header>
 			<Outlet />

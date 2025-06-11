@@ -21,14 +21,12 @@
 }
 
 .githubLink {
-	background-color: lightgrey;
-	border-radius: 0 0 8px 0;
-	box-shadow: $shadowMedium;
-
-	display: block;
-	padding: 4px;
+	position: relative;
+	left: 15px;
+	color: white;
 
 	.logo {
-		width: 32px;
+		width: 28px;
+		height: auto;
 	}
 }
