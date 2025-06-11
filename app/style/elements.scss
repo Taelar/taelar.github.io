@@ -1,0 +1,18 @@
+@use '~/style/variables' as *;
+
+select {
+	background: transparent;
+	border: none;
+	color: $fontColorTitle;
+
+	&:focus,
+	&:focus-visible,
+	&:focus-within {
+		outline: solid $fontColorTitle;
+	}
+
+	option {
+		color: black;
+		background: transparent;
+	}
+}

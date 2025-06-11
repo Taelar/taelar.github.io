@@ -15,9 +15,19 @@
 	}
 }
 
+.githubLink {
+	color: white;
+
+	.logo {
+		width: 25px;
+		height: auto;
+	}
+}
+
 .footer {
 	position: fixed;
 	z-index: $zIndexHeaderFooter;
+	padding: 8px;
 
 	bottom: 0;
 
@@ -26,11 +36,18 @@
 	}
 }
 
-.githubLink {
-	color: white;
+.ripplesSelect {
+	display: flex;
 
-	.logo {
-		width: 25px;
-		height: auto;
+	@media print {
+		display: none;
+	}
+
+	@media (max-width: #{$resumeWidth}) {
+		display: none;
+	}
+
+	.icon {
+		width: 24px;
 	}
 }

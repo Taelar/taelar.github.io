@@ -12,7 +12,7 @@ $reducedPagePadding: 24px;
 	margin-right: auto;
 
 	display: flex;
-	max-width: 794px;
+	max-width: $resumeWidth;
 	min-height: 100vh;
 
 	flex-direction: column;
