@@ -13,6 +13,8 @@ type BoundedCoordCallback = (
 ) => { x: number; y: number }
 
 export const initWaterCanvas = () => {
+	if (!document) return
+
 	const scene = new THREE.Scene()
 	const simScene = new THREE.Scene()
 
@@ -24,17 +26,16 @@ export const initWaterCanvas = () => {
 		preserveDrawingBuffer: true,
 	})
 	renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
-	renderer.setSize(window.innerWidth, window.innerHeight)
+	renderer.setSize(window.innerWidth, document.body.scrollHeight)
 	renderer.domElement.className = styles['waterCanvas']
 
-	if (!document) return
 	document.body.appendChild(renderer.domElement)
 
 	const mouse = new THREE.Vector2()
 	let frame = 0
 
 	const width = window.innerWidth * window.devicePixelRatio
-	const height = window.innerHeight * window.devicePixelRatio
+	const height = document.body.scrollHeight * window.devicePixelRatio
 
 	const options: THREE.RenderTargetOptions = {
 		format: THREE.RGBAFormat,
@@ -89,9 +90,9 @@ export const initWaterCanvas = () => {
 
 	window.addEventListener('resize', () => {
 		const newWidth = window.innerWidth * window.devicePixelRatio
-		const newHeight = window.innerHeight * window.devicePixelRatio
+		const newHeight = document.body.scrollHeight * window.devicePixelRatio
 
-		renderer.setSize(window.innerWidth, window.innerHeight)
+		renderer.setSize(window.innerWidth, document.body.scrollHeight)
 		rtA.setSize(newWidth, newHeight)
 		rtB.setSize(newWidth, newHeight)
 		simMaterial.uniforms.resolution.value.set(newWidth, newHeight)
@@ -113,7 +114,9 @@ export const initWaterCanvas = () => {
 
 	renderer.domElement.addEventListener('mousedown', (event) => {
 		const x = event.clientX * window.devicePixelRatio
-		const y = (window.innerHeight - event.clientY) * window.devicePixelRatio
+		const y =
+			(document.body.scrollHeight - event.clientY - window.scrollY) *
+			window.devicePixelRatio
 
 		renderWaterRipple(() => ({ x, y }))
 	})
