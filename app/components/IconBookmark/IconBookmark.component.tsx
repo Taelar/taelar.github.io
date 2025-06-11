@@ -7,7 +7,7 @@ const cx = classNames.bind(styles)
 
 export const IconBookmark: FC<IconBookmarkProps> = ({ theme, children }) => {
 	return (
-		<div className={cx('container')}>
+		<div className={cx('container', theme)}>
 			<svg
 				viewBox="-60 -100 120 200"
 				xmlns="http://www.w3.org/2000/svg"
@@ -16,11 +16,11 @@ export const IconBookmark: FC<IconBookmarkProps> = ({ theme, children }) => {
 			>
 				<polygon
 					className={cx('background')}
-					points="-60,-100 -60,100 0,50 60,100 60,-100"
+					points="-60,-100 -60,100 0,70 60,100 60,-100"
 				/>
 				<path
 					className={cx('line')}
-					d="M -50 -100 L -50 80 L 0 37 L 50 80 L 50 -100"
+					d="M -45 -100 L -45 75 L 0 51 L 45 75 L 45 -100"
 					fill="none"
 					strokeWidth="5"
 				/>

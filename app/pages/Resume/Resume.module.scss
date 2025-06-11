@@ -3,8 +3,6 @@
 $pagePadding: 48px;
 $reducedPagePadding: 24px;
 
-$widthBreakPoint: 550px;
-
 .main {
 	position: relative;
 	z-index: $zIndexMainContent;
@@ -39,7 +37,7 @@ $widthBreakPoint: 550px;
 	grid-template-columns: 2fr 1fr;
 	align-items: end;
 
-	@container (max-width: #{$widthBreakPoint}) {
+	@container (max-width: #{$breakpointSmallLayout}) {
 		--bg-breakpoint: 200px;
 
 		gap: 48px 0;
@@ -76,7 +74,7 @@ $widthBreakPoint: 550px;
 		display: flex;
 		gap: 16px;
 
-		@container (max-width: #{$widthBreakPoint}) {
+		@container (max-width: #{$breakpointSmallLayout}) {
 			flex-wrap: wrap;
 		}
 	}
@@ -91,7 +89,7 @@ $widthBreakPoint: 550px;
 
 	color: $darkBlue;
 
-	@container (max-width: #{$widthBreakPoint}) {
+	@container (max-width: #{$breakpointSmallLayout}) {
 		grid-template-columns: 1fr;
 		padding: $reducedPagePadding $reducedPagePadding;
 	}

@@ -11,7 +11,7 @@
 		display: none;
 	}
 
-	@media (prefers-reduced-motion: reduce) {
+	@media (max-width: #{$breakpointSmallLayout}) {
 		display: none;
 	}
 }
