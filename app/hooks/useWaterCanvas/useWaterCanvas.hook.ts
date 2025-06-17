@@ -15,6 +15,7 @@ export const useWaterCanvas = () => {
 
 		return () => {
 			animationRef.current?.destroy()
+			animationRef.current = undefined
 		}
 	}, [])
 

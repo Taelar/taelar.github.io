@@ -24,6 +24,10 @@
 	}
 }
 
+.main {
+	position: relative;
+}
+
 .footer {
 	position: fixed;
 	z-index: $zIndexHeaderFooter;
@@ -46,8 +50,8 @@
 	@media (max-width: #{$resumeWidth}) {
 		display: none;
 	}
+}
 
-	.icon {
-		width: 24px;
-	}
+.icon {
+	width: 24px;
 }

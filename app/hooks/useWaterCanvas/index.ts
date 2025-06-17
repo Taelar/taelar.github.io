@@ -1,1 +1,1 @@
-export * from './useWaterCanvas'
+export * from './useWaterCanvas.hook'

@@ -16,3 +16,18 @@ select {
 		background: transparent;
 	}
 }
+
+button {
+	border: none;
+	background: $darkBlue;
+	color: $fontColorTitle;
+
+	padding: 8px;
+	border-radius: 4px;
+
+	&:focus,
+	&:focus-visible,
+	&:focus-within {
+		outline: solid $fontColorTitle;
+	}
+}

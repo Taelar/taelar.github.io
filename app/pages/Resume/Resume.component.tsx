@@ -10,7 +10,7 @@ const cx = classNames.bind(styles)
 
 export const Resume: FC = () => {
 	return (
-		<main className={cx('main')}>
+		<section className={cx('main')}>
 			<div className={cx('header')}>
 				<div className={cx('nameAndContact')}>
 					<p className={cx('subTitle')}>Développeur Front-end</p>
@@ -137,6 +137,6 @@ export const Resume: FC = () => {
 					</Section>
 				</div>
 			</div>
-		</main>
+		</section>
 	)
 }
