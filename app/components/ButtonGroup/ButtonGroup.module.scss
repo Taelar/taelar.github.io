@@ -1,0 +1,15 @@
+@use '~/style/variables' as *;
+
+.group {
+	display: grid;
+	grid-auto-flow: column;
+	gap: 2px;
+}
+
+.button {
+	border-radius: 0 0 4px 4px;
+}
+
+.icon {
+	width: 20px;
+}

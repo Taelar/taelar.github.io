@@ -5,6 +5,10 @@
 	z-index: $zIndexHeaderFooter;
 	left: 15px;
 
+	display: flex;
+	align-items: start;
+	gap: 16px;
+
 	@media print {
 		display: none;
 	}
