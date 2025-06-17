@@ -17,6 +17,12 @@
 		left: unset;
 		right: 15px;
 	}
+
+	@media (max-width: #{$resumeWidth}) {
+		.backgroundSelect {
+			display: none;
+		}
+	}
 }
 
 .githubLink {
@@ -30,32 +36,4 @@
 
 .main {
 	position: relative;
-}
-
-.footer {
-	position: fixed;
-	z-index: $zIndexHeaderFooter;
-	padding: 8px;
-
-	bottom: 0;
-
-	@media print {
-		display: none;
-	}
-}
-
-.ripplesSelect {
-	display: flex;
-
-	@media print {
-		display: none;
-	}
-
-	@media (max-width: #{$resumeWidth}) {
-		display: none;
-	}
-}
-
-.icon {
-	width: 24px;
 }

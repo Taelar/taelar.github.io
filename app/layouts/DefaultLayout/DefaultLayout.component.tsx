@@ -35,40 +35,23 @@ const DefaultLayout: FC = () => {
 						<Icon icon="github" additionnalClassNames={styles['logo']} />
 					</IconBookmark>
 				</a>
-				<ButtonGroup
-					value={searchParams.background}
-					options={backgroundOptions}
-					onSelect={(selected) =>
-						setSearchParams({
-							background: selected.value,
-						})
-					}
-				/>
+				<div className={styles['backgroundSelect']}>
+					<ButtonGroup
+						value={searchParams.background}
+						options={backgroundOptions}
+						onSelect={(selected) =>
+							setSearchParams({
+								background: selected.value,
+							})
+						}
+					/>
+				</div>
 			</header>
 			<main className={styles['main']}>
 				<Outlet />
 				{searchParams.background === 'triangle' && <TriangleBackground />}
 				{searchParams.background === 'water' && <WaterBackground />}
 			</main>
-			<footer className={styles['footer']}>
-				<div className={styles['ripplesSelect']}>
-					{/* <Icon icon="drop" additionnalClassNames={styles['icon']} /> */}
-					{/* <select
-						value={ripplesInterval}
-						title="Fréquence des ondulations"
-						onChange={(event) => {
-							const parsed = Number.parseInt(event.currentTarget.value)
-							if (!Number.isInteger(parsed)) return
-							setRipplesInterval(parsed)
-						}}
-					>
-						<option value="50">Chaos</option>
-						<option value="500">Rapide</option>
-						<option value="2000">Moyen</option>
-						<option value="5000">Lent</option>
-					</select> */}
-				</div>
-			</footer>
 		</>
 	)
 }

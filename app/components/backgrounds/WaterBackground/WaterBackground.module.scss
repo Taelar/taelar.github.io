@@ -11,3 +11,25 @@
 
 	background-color: lightblue;
 }
+
+.ripplesSelect {
+	z-index: $zIndexHeaderFooter;
+
+	position: fixed;
+	bottom: 12px;
+	left: 12px;
+
+	display: flex;
+
+	@media print {
+		display: none;
+	}
+
+	@media (max-width: #{$resumeWidth}) {
+		display: none;
+	}
+
+	.icon {
+		width: 24px;
+	}
+}
