@@ -1,5 +1,7 @@
+import type { IconName } from '../Icon/Icon.model'
+
 export interface SocialLinkProps {
-	icon: 'linkedin' | 'github' | 'website'
+	icon: IconName
 	label: string
 	link: string
 }

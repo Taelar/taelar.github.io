@@ -1,3 +1,8 @@
 export { default as drop } from './drop.svg?react'
 export { default as github } from './github.svg?react'
 export { default as triangle } from './triangle.svg?react'
+export { default as phone } from './phone.svg?react'
+export { default as email } from './email.svg?react'
+export { default as linkedin } from './linkedin.svg?react'
+export { default as githubCircle } from './githubCircle.svg?react'
+export { default as website } from './website.svg?react'

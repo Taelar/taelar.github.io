@@ -25,7 +25,7 @@ export const Resume: FC = () => {
 									link="https://www.linkedin.com/in/thomas-esseul-4830a4153/"
 								/>
 								<SocialLink
-									icon="github"
+									icon="githubCircle"
 									label="Taelar"
 									link="https://github.com/Taelar"
 								/>

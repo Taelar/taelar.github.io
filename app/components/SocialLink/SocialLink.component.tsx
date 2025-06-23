@@ -1,9 +1,7 @@
 import { type FC } from 'react'
 import { type SocialLinkProps } from './SocialLink.model'
 import styles from './SocialLink.module.scss'
-import { GithubLogo } from './assets/GithubLogo.component'
-import { LinkedInLogo } from './assets/LinkedInLogo.component'
-import { WebLogo } from './assets/WebLogo.component'
+import { Icon } from '../Icon'
 
 export const SocialLink: FC<SocialLinkProps> = ({ icon, label, link }) => {
 	return (
@@ -13,9 +11,7 @@ export const SocialLink: FC<SocialLinkProps> = ({ icon, label, link }) => {
 			className={styles['socialLink']}
 			rel="noreferrer"
 		>
-			{icon === 'github' && <GithubLogo />}
-			{icon === 'linkedin' && <LinkedInLogo />}
-			{icon === 'website' && <WebLogo />}
+			<Icon icon={icon} />
 			<span>{label}</span>
 		</a>
 	)
