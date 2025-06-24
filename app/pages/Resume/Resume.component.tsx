@@ -4,7 +4,7 @@ import styles from './Resume.module.scss'
 import { Section } from '~/components/Section'
 import { Card } from '~/components/Card'
 import { ProfilePicture } from '~/components/ProfilePicture'
-import { SocialLink } from '~/components/SocialLink'
+import { ContactSection } from '~/components/ContactSection'
 
 const cx = classNames.bind(styles)
 
@@ -15,27 +15,8 @@ export const Resume: FC = () => {
 				<div className={cx('nameAndContact')}>
 					<p className={cx('subTitle')}>Développeur Front-end</p>
 					<h1 className={cx('mainTitle')}>Thomas Esseul</h1>
-
 					<div className={cx('contact')}>
-						<Section title="Contact">
-							<div className={cx('contactLine')}>
-								<SocialLink
-									icon="linkedin"
-									label="Thomas Esseul"
-									link="https://www.linkedin.com/in/thomas-esseul-4830a4153/"
-								/>
-								<SocialLink
-									icon="githubCircle"
-									label="Taelar"
-									link="https://github.com/Taelar"
-								/>
-								<SocialLink
-									icon="website"
-									label="taelar.github.io"
-									link="https://taelar.github.io/"
-								/>
-							</div>
-						</Section>
+						<ContactSection />
 					</div>
 				</div>
 				<ProfilePicture />

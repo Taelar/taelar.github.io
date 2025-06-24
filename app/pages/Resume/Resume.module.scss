@@ -74,16 +74,6 @@ $reducedPagePadding: 24px;
 		margin-top: 32px;
 		color: $darkBlue;
 	}
-
-	.contactLine {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 8px 16px;
-
-		@container (max-width: #{$breakpointSmallLayout}) {
-			flex-wrap: wrap;
-		}
-	}
 }
 
 .content {

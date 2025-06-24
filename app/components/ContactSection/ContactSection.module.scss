@@ -1,0 +1,11 @@
+@use '~/style/variables' as *;
+
+.contactLine {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px 16px;
+
+	@container (max-width: #{$breakpointSmallLayout}) {
+		flex-wrap: wrap;
+	}
+}
