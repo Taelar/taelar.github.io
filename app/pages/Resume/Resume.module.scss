@@ -12,10 +12,11 @@ $reducedPagePadding: 24px;
 	margin-right: auto;
 
 	display: flex;
+	justify-content: space-between;
+
 	max-width: $resumeWidth;
-	// min-height: 100vh;
+	min-height: $resumeHeight;
 	max-height: $resumeHeight;
-	overflow-y: auto;
 
 	flex-direction: column;
 	background-color: $grey;
@@ -23,12 +24,11 @@ $reducedPagePadding: 24px;
 
 	@media print {
 		width: 100%;
-		min-height: $resumeHeight;
 	}
 }
 
 .header {
-	--bg-breakpoint: 60%;
+	--bg-breakpoint: 230px;
 	background: linear-gradient(
 		to bottom,
 		$darkBlue var(--bg-breakpoint),
@@ -51,6 +51,8 @@ $reducedPagePadding: 24px;
 }
 
 .nameAndContact {
+	align-self: start;
+
 	.mainTitle {
 		font-size: clamp(64px, 10vw, 86px);
 		font-weight: 700;
