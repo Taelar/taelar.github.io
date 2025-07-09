@@ -13,11 +13,8 @@ import type { Route } from './+types/root'
 import './style/app.scss'
 import './style/reset.scss'
 import './style/elements.scss'
-import {
-	DEFAULT_LANGUAGE,
-	SUPPORTED_LANG_KEYS,
-	type SupportedLangKeys,
-} from './model/lang'
+import { type SupportedLangKeys } from './model/lang'
+import { getLangFromContext } from './utils/loader.utils'
 
 interface RootLoaderData {
 	lang: SupportedLangKeys
@@ -39,20 +36,7 @@ export const links: Route.LinksFunction = () => [
 export async function loader(
 	args: LoaderFunctionArgs,
 ): Promise<RootLoaderData> {
-	let lang = DEFAULT_LANGUAGE
-
-	try {
-		const { url } = args.request
-		const path = new URL(url).pathname
-		const splited = path.split('/')
-		const parsedLang = splited.at(1) as SupportedLangKeys | undefined
-
-		if (parsedLang && SUPPORTED_LANG_KEYS.includes(parsedLang)) {
-			lang = parsedLang
-		}
-	} catch (e) {
-		console.warn('Failed to parse current lang', e)
-	}
+	const lang = getLangFromContext(args)
 
 	return { lang }
 }

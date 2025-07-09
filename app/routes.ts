@@ -6,9 +6,9 @@ import {
 } from '@react-router/dev/routes'
 
 export default [
-	index('routes/redirect.tsx'),
+	index('pages/Redirect/index.tsx'),
 	layout('./layouts/DefaultLayout/index.ts', [
-		...prefix('fr', [index('routes/resume.tsx', { id: 'frResume' })]),
-		...prefix('en', [index('routes/resume.tsx', { id: 'enResume' })]),
+		...prefix('fr', [index('pages/Resume/index.ts', { id: 'frResume' })]),
+		...prefix('en', [index('pages/Resume/index.ts', { id: 'enResume' })]),
 	]),
 ] satisfies RouteConfig
