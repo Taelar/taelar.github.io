@@ -19,15 +19,21 @@ body {
 	color: white;
 }
 
-.error_boundary {
-	padding: 16px;
-	padding-top: 64px;
-	margin-inline: auto;
-	max-width: 90%;
+.error_body {
+	background: center / cover url('/background_triangle.png') no-repeat;
+	min-height: 100vh;
 
-	.error_stacktrace {
-		width: 100%;
+	.error_boundary {
 		padding: 16px;
-		overflow-x: auto;
+		padding-top: 64px;
+		margin-inline: auto;
+		max-width: 90%;
+		color: black;
+
+		.error_stacktrace {
+			width: 100%;
+			padding: 16px;
+			overflow-x: auto;
+		}
 	}
 }

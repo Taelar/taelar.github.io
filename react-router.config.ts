@@ -5,6 +5,6 @@ export default {
 	buildDirectory: 'dist',
 	// Ajouter ici les routes qui doivent générer statiquement au moment du build
 	async prerender() {
-		return ['/']
+		return ['/', '/fr', '/en']
 	},
 } satisfies Config

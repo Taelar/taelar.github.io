@@ -5,12 +5,23 @@ import {
 	Outlet,
 	Scripts,
 	ScrollRestoration,
+	useLoaderData,
+	type LoaderFunctionArgs,
 } from 'react-router'
 
 import type { Route } from './+types/root'
 import './style/app.scss'
 import './style/reset.scss'
 import './style/elements.scss'
+import {
+	DEFAULT_LANGUAGE,
+	SUPPORTED_LANG_KEYS,
+	type SupportedLangKeys,
+} from './model/lang'
+
+interface RootLoaderData {
+	lang: SupportedLangKeys
+}
 
 export const links: Route.LinksFunction = () => [
 	{ rel: 'preconnect', href: 'https://fonts.googleapis.com' },
@@ -25,9 +36,32 @@ export const links: Route.LinksFunction = () => [
 	},
 ]
 
-export function Layout({ children }: { children: React.ReactNode }) {
+export async function loader(
+	args: LoaderFunctionArgs,
+): Promise<RootLoaderData> {
+	let lang = DEFAULT_LANGUAGE
+
+	try {
+		const { url } = args.request
+		const path = new URL(url).pathname
+		const splited = path.split('/')
+		const parsedLang = splited.at(1) as SupportedLangKeys | undefined
+
+		if (parsedLang && SUPPORTED_LANG_KEYS.includes(parsedLang)) {
+			lang = parsedLang
+		}
+	} catch (e) {
+		console.warn('Failed to parse current lang', e)
+	}
+
+	return { lang }
+}
+
+export default function App() {
+	const { lang } = useLoaderData<RootLoaderData>()
+
 	return (
-		<html lang="fr">
+		<html lang={lang}>
 			<head>
 				<meta charSet="utf-8" />
 				<meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -35,16 +69,12 @@ export function Layout({ children }: { children: React.ReactNode }) {
 				<Links />
 			</head>
 			<body>
-				{children}
+				<Outlet />
 				<ScrollRestoration />
 				<Scripts />
 			</body>
 		</html>
 	)
-}
-
-export default function App() {
-	return <Outlet />
 }
 
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
@@ -64,14 +94,26 @@ export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
 	}
 
 	return (
-		<main className="error_boundary">
-			<h1>{message}</h1>
-			<p>{details}</p>
-			{stack && (
-				<pre className="error_stacktrace">
-					<code>{stack}</code>
-				</pre>
-			)}
-		</main>
+		<html lang="en" className="error_body">
+			<head>
+				<meta charSet="utf-8" />
+				<meta name="viewport" content="width=device-width, initial-scale=1" />
+				<Meta />
+				<Links />
+			</head>
+			<body>
+				<main className="error_boundary">
+					<h1>{message}</h1>
+					<p>{details}</p>
+					{stack && (
+						<pre className="error_stacktrace">
+							<code>{stack}</code>
+						</pre>
+					)}
+				</main>
+				<ScrollRestoration />
+				<Scripts />
+			</body>
+		</html>
 	)
 }
