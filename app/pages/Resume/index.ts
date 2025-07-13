@@ -1,3 +1,1 @@
-import { Resume } from './Resume.component'
-
-export { Resume, Resume as default }
+export { Resume, Resume as default, loader } from './Resume.component'

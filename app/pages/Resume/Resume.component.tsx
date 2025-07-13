@@ -5,17 +5,27 @@ import { Section } from '~/components/Section'
 import { Card } from '~/components/Card'
 import { ProfilePicture } from '~/components/ProfilePicture'
 import { ContactSection } from '~/components/ContactSection'
+import { useLoaderData, type LoaderFunctionArgs } from 'react-router'
+import { getLangFromContext } from '~/utils/loader.utils'
+import { LANG_FILES } from '~/model/lang/lang.model'
 
 const cx = classNames.bind(styles)
 
+export async function loader(args: LoaderFunctionArgs) {
+	const langKey = getLangFromContext(args)
+	const langFile = LANG_FILES[langKey]
+	return { langKey, langFile }
+}
+
+type LoaderData = Awaited<ReturnType<typeof loader>>
+
 export const Resume: FC = () => {
+	const { langFile } = useLoaderData<LoaderData>()
+
 	return (
 		<>
 			<title>Thomas Esseul - Développeur</title>
-			<meta
-				name="description"
-				content="Bienvenue sur mon CV qui sert vaguement de portfolio, je mets un peu tout et n'importe quoi ici, mais surtout n'importe quoi."
-			/>
+			<meta name="description" content={langFile.resume.pageDescription} />
 			<section className={cx('main')}>
 				<div className={cx('header')}>
 					<div className={cx('nameAndContact')}>
@@ -36,7 +46,7 @@ export const Resume: FC = () => {
 									leftTitle="Développeur Front-end"
 									rightTitle="Follow Health | Rennes"
 									subTitles={[
-										'Depuis Sept 2021',
+										'Sept 2021 - Juillet 2025',
 										'1 an (alternance) : Sept 2020 - Août 2021',
 										'4 mois (stage): Mai 2020 - Août 2020',
 									]}
