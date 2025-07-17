@@ -5,6 +5,24 @@ export const LANG_FILE_FR = {
 		jobTitle: 'Développeur Front-end',
 		fullName: 'Thomas Esseul',
 	},
+	layout: {
+		githubRepo: 'Dépôt Github',
+		background: {
+			water: {
+				title: 'Style de fond : Eau',
+				select: {
+					title: 'Fréquence des ondulations',
+					chaos: 'Chaos',
+					fast: 'Rapide',
+					medium: 'Moyen',
+					slow: 'Lent',
+				},
+			},
+			triangles: {
+				title: 'Style de fond : Triangles',
+			},
+		},
+	},
 	resume: {
 		experiences: {
 			title: 'Expériences',

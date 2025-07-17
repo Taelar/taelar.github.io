@@ -1,26 +1,16 @@
-import { type FC } from 'react'
+import { useContext, type FC } from 'react'
 import classNames from 'classnames/bind'
 import styles from './Resume.module.scss'
 import { Section } from '~/components/Section'
 import { Card } from '~/components/Card'
 import { ProfilePicture } from '~/components/ProfilePicture'
 import { ContactSection } from '~/components/ContactSection'
-import { useLoaderData, type LoaderFunctionArgs } from 'react-router'
-import { getLangFromContext } from '~/utils/loader.utils'
-import { LANG_FILES } from '~/model/lang/lang.model'
+import { LangContext } from '~/context/Lang.context'
 
 const cx = classNames.bind(styles)
 
-export async function loader(args: LoaderFunctionArgs) {
-	const langKey = getLangFromContext(args)
-	const langFile = LANG_FILES[langKey]
-	return { langKey, langFile }
-}
-
-type LoaderData = Awaited<ReturnType<typeof loader>>
-
 export const Resume: FC = () => {
-	const { langFile } = useLoaderData<LoaderData>()
+	const { langFile } = useContext(LangContext)
 
 	const { jobTitle, fullName } = langFile.global
 	const pageTitle = `${fullName} - ${jobTitle}`

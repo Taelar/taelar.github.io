@@ -7,6 +7,24 @@ export const LANG_FILE_EN: LangFile = {
 		jobTitle: 'Front-end Developer',
 		fullName: 'Thomas Esseul',
 	},
+	layout: {
+		githubRepo: 'Github Repository',
+		background: {
+			water: {
+				title: 'Background style : Water',
+				select: {
+					title: 'Ripples frequency',
+					chaos: 'Chaos',
+					fast: 'Fast',
+					medium: 'Medium',
+					slow: 'Slow',
+				},
+			},
+			triangles: {
+				title: 'Background style : Triangles',
+			},
+		},
+	},
 	resume: {
 		experiences: {
 			title: 'Experience',

@@ -1,1 +1,1 @@
-export { Resume, Resume as default, loader } from './Resume.component'
+export { Resume, Resume as default } from './Resume.component'
