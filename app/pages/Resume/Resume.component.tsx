@@ -22,15 +22,18 @@ type LoaderData = Awaited<ReturnType<typeof loader>>
 export const Resume: FC = () => {
 	const { langFile } = useLoaderData<LoaderData>()
 
+	const { jobTitle, fullName } = langFile.global
+	const pageTitle = `${fullName} - ${jobTitle}`
+
 	return (
 		<>
-			<title>Thomas Esseul - Développeur</title>
-			<meta name="description" content={langFile.resume.pageDescription} />
+			<title>{pageTitle}</title>
+			<meta name="description" content={langFile.global.description} />
 			<section className={cx('main')}>
 				<div className={cx('header')}>
 					<div className={cx('nameAndContact')}>
-						<p className={cx('subTitle')}>Développeur Front-end</p>
-						<h1 className={cx('mainTitle')}>Thomas Esseul</h1>
+						<p className={cx('subTitle')}>{langFile.global.jobTitle}</p>
+						<h1 className={cx('mainTitle')}>{langFile.global.fullName}</h1>
 						<div className={cx('contact')}>
 							<ContactSection />
 						</div>
@@ -40,15 +43,15 @@ export const Resume: FC = () => {
 
 				<div className={cx('content')}>
 					<div className={cx('contentSubContainer')}>
-						<Section title="Expériences">
+						<Section title={langFile.resume.experiences.title}>
 							<>
 								<Card
-									leftTitle="Développeur Front-end"
-									rightTitle="Follow Health | Rennes"
+									leftTitle={langFile.resume.experiences.exp1.jobTitle}
+									rightTitle={langFile.resume.experiences.exp1.enterprise}
 									subTitles={[
-										'Sept 2021 - Juillet 2025',
-										'1 an (alternance) : Sept 2020 - Août 2021',
-										'4 mois (stage): Mai 2020 - Août 2020',
+										langFile.resume.experiences.exp1.periods.contract,
+										langFile.resume.experiences.exp1.periods.apprenticeShip,
+										langFile.resume.experiences.exp1.periods.internship,
 									]}
 									tags={[
 										'React',
@@ -63,73 +66,67 @@ export const Resume: FC = () => {
 										'Docker',
 									]}
 								>
-									<span>
-										Ajout de fonctionnalités, corrections de bugs, UI design
-									</span>
-									<span>
-										Entretien et modernisation de la codebase principale
-									</span>
-									<span>
-										Consignation, évaluation et réduction de la dette technique
-									</span>
-									<span>
-										Participation à l&apos;amélioration des processus
-										d&apos;équipe
-									</span>
-									<span>
-										Développement d&apos;un éditeur de document avec plugins
-										personnalisés
-									</span>
-									<span>Rendu de documents PDF dynamiques</span>
-									<span>Migration de Redux Sagas vers React-Query</span>
-									<span>Optimisation et entretien de la CI</span>
-									<span>Création de micro-service avec Nest.js</span>
+									<span>{langFile.resume.experiences.exp1.content.cont1}</span>
+									<span>{langFile.resume.experiences.exp1.content.cont2}</span>
+									<span>{langFile.resume.experiences.exp1.content.cont3}</span>
+									<span>{langFile.resume.experiences.exp1.content.cont4}</span>
+									<span>{langFile.resume.experiences.exp1.content.cont5}</span>
+									<span>{langFile.resume.experiences.exp1.content.cont6}</span>
+									<span>{langFile.resume.experiences.exp1.content.cont7}</span>
+									<span>{langFile.resume.experiences.exp1.content.cont8}</span>
+									<span>{langFile.resume.experiences.exp1.content.cont9}</span>
 								</Card>
 								<Card
-									leftTitle="Développeur Web"
-									rightTitle="IMaR | Tralee, Irlande"
-									subTitles={['3 mois (stage) : Avril 2018 - Juin 2018']}
+									leftTitle={langFile.resume.experiences.exp2.jobTitle}
+									rightTitle={langFile.resume.experiences.exp2.enterprise}
+									subTitles={[
+										langFile.resume.experiences.exp2.periods.internship,
+									]}
 									tags={['PHP', 'Laravel', 'SQL']}
 								>
-									<span>Développement d&apos;un site web e-commerce</span>
+									<span>{langFile.resume.experiences.exp2.content.cont1}</span>
 								</Card>
 							</>
 						</Section>
 
-						<Section title="Langues">
+						<Section title={langFile.resume.languages.title}>
 							<div className={cx('languages')}>
-								<Card leftTitle="Français">Langue Maternelle</Card>
-								<Card leftTitle="Anglais">Courant</Card>
+								<Card leftTitle={langFile.resume.languages.french.title}>
+									{langFile.resume.languages.french.level}
+								</Card>
+								<Card leftTitle={langFile.resume.languages.english.title}>
+									{langFile.resume.languages.english.level}
+								</Card>
 							</div>
 						</Section>
 					</div>
 					<div className={cx('contentSubContainer')}>
-						<Section title="Formation">
+						<Section title={langFile.resume.education.title}>
 							<Card
-								leftTitle="Master Informatique : Ingénierie Logicielle"
-								subTitles={['2019 - 2021']}
+								leftTitle={langFile.resume.education.educ1.title}
+								subTitles={[langFile.resume.education.educ1.period]}
 							/>
 							<Card
-								leftTitle="Licence Informatique"
-								subTitles={['2018 - 2019']}
+								leftTitle={langFile.resume.education.educ2.title}
+								subTitles={[langFile.resume.education.educ2.period]}
 							/>
 							<Card
-								leftTitle="DUT Informatique : Ingénierie Logicielle"
-								subTitles={['2016 - 2018']}
+								leftTitle={langFile.resume.education.educ3.title}
+								subTitles={[langFile.resume.education.educ3.period]}
 							/>
 						</Section>
-						<Section title="Projets">
-							<Card leftTitle="Gitlab Bot" subTitles={['Follow Health']}>
-								<span>
-									Notifications et automatisations liées aux outils de
-									l&apos;équipe technique (Slack, Gitlab, Jira)
-								</span>
+						<Section title={langFile.resume.projects.title}>
+							<Card
+								leftTitle={langFile.resume.projects.proj1.title}
+								subTitles={[langFile.resume.projects.proj1.context]}
+							>
+								<span>{langFile.resume.projects.proj1.content}</span>
 							</Card>
-							<Card leftTitle="Bot Discord" subTitles={['Projet personnel']}>
-								<span>
-									Bot pour un serveur privé servant à &quot;ajouter de
-									l&apos;ambiance&quot;
-								</span>
+							<Card
+								leftTitle={langFile.resume.projects.proj2.title}
+								subTitles={[langFile.resume.projects.proj2.context]}
+							>
+								<span>{langFile.resume.projects.proj2.content}</span>
 							</Card>
 						</Section>
 					</div>
