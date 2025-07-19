@@ -7,8 +7,14 @@ import {
 
 export default [
 	index('pages/Redirect/index.tsx'),
-	layout('./layouts/DefaultLayout/index.ts', [
-		...prefix('fr', [index('pages/Resume/index.ts', { id: 'frResume' })]),
-		...prefix('en', [index('pages/Resume/index.ts', { id: 'enResume' })]),
+	...prefix('fr', [
+		layout('./layouts/DefaultLayout/index.ts', { id: 'frRoot' }, [
+			index('pages/Resume/index.ts', { id: 'frResume' }),
+		]),
+	]),
+	...prefix('en', [
+		layout('./layouts/DefaultLayout/index.ts', { id: 'enRoot' }, [
+			index('pages/Resume/index.ts', { id: 'enResume' }),
+		]),
 	]),
 ] satisfies RouteConfig

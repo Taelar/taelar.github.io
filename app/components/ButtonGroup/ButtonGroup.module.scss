@@ -1,4 +1,5 @@
 @use '~/style/variables' as *;
+@use 'sass:color';
 
 .group {
 	display: grid;
@@ -8,8 +9,16 @@
 
 .button {
 	border-radius: 0 0 4px 4px;
+	padding: 8px;
+	background: $darkBlue;
+	font-size: 0.9rem;
 
 	box-shadow: $shadowMedium;
+
+	&.disabled {
+		background-color: #{color.scale($darkBlue, $lightness: -30%)};
+		cursor: default;
+	}
 }
 
 .icon {

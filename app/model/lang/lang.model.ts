@@ -12,3 +12,8 @@ export const LANG_FILES: Record<SupportedLangKeys, LangFile> = {
 	fr: LANG_FILE_FR,
 	en: LANG_FILE_EN,
 }
+
+export const LANG_NAME: Record<SupportedLangKeys, string> = {
+	fr: 'Français',
+	en: 'English',
+}

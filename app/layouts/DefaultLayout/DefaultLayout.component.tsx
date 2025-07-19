@@ -6,13 +6,25 @@ import { IconBookmark } from '~/components/IconBookmark'
 import { TriangleBackground, WaterBackground } from '~/components/backgrounds'
 import { useSearchParamsState } from '~/hooks/useSearchParamsState'
 import { ButtonGroup, type GroupOption } from '~/components/ButtonGroup'
-import { LANG_FILES } from '~/model/lang/lang.model'
+import {
+	LANG_FILES,
+	LANG_NAME as LANG_NAMES,
+	SUPPORTED_LANG_KEYS,
+	type SupportedLangKeys,
+} from '~/model/lang/lang.model'
 import { getLangFromContext } from '~/utils/loader.utils'
 import { LangContext } from '~/context/Lang.context'
 
 type SearchParams = {
 	background: 'triangle' | 'water'
 }
+
+const langOptions: Array<GroupOption<SupportedLangKeys>> =
+	SUPPORTED_LANG_KEYS.map((key) => ({
+		url: `/${key}`,
+		label: LANG_NAMES[key],
+		text: key.toLocaleUpperCase(),
+	}))
 
 export async function loader(args: LoaderFunctionArgs) {
 	const langKey = getLangFromContext(args)
@@ -65,15 +77,18 @@ const DefaultLayout: FC = () => {
 						<Icon icon="github" additionnalClassNames={styles['logo']} />
 					</IconBookmark>
 				</a>
+				<ButtonGroup value={`/${langKey}`} options={langOptions} />
 				<div className={styles['backgroundSelect']}>
 					<ButtonGroup
 						value={searchParams.background}
 						options={backgroundOptions}
-						onSelect={(selected) =>
+						onSelect={(selected) => {
+							if (!('value' in selected)) return
+
 							setSearchParams({
 								background: selected.value,
 							})
-						}
+						}}
 					/>
 				</div>
 			</header>
