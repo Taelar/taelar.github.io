@@ -53,9 +53,20 @@ $reducedPagePadding: 24px;
 	align-self: start;
 
 	.mainTitle {
-		font-size: clamp(64px, 10vw, 86px);
+		font-size: 86px;
 		font-weight: 700;
 		line-height: 0.9;
+
+		@container (max-width: #{$breakpointSmallLayout}) {
+			font-size: 64px;
+		}
+
+		@media print {
+			/* Fix: Chromium applique un scaling différent entre écran et impression
+       Scale 1.023 compense l'écart de rendu pour correspondre à l'affichage viewport */
+			transform: scale(1.023);
+			transform-origin: left top; /* Ajuster selon vos besoins */
+		}
 	}
 
 	.subTitle {
