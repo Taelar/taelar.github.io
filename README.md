@@ -7,7 +7,9 @@ Bienvenue sur mon CV qui sert vaguement de portfolio. Je mets un peu tout et n'i
 Code
 
 - Double check l'accessibilité
-- Watermark "Générée via ..." à l'impression
+- Tester les utils et regex
+- Test de composants ?
+- Watermark "Générée via ..." à l'impression ?
 
 ## Installation et utilisation
 

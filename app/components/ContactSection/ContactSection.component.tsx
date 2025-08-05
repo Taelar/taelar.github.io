@@ -1,9 +1,11 @@
-import { useEffect, useMemo, useState, type FC } from 'react'
+import { useContext, useEffect, useMemo, useState, type FC } from 'react'
 import classNames from 'classnames/bind'
 import styles from './ContactSection.module.scss'
 import { Section } from '../Section'
 import { SocialLink } from '../SocialLink'
 import { LocalStorageKeys } from '~/model/localStorage'
+import { formatPhoneNumber } from '~/utils/phone.utils'
+import { LangContext } from '~/context/Lang.context'
 
 const cx = classNames.bind(styles)
 
@@ -19,6 +21,8 @@ const cx = classNames.bind(styles)
 */
 export const ContactSection: FC = () => {
 	const [isClientSide, setisClientSide] = useState(false)
+	const { langKey } = useContext(LangContext)
+
 	useEffect(() => {
 		setisClientSide(true)
 	}, [])
@@ -35,14 +39,8 @@ export const ContactSection: FC = () => {
 		const storedPhone = window.localStorage.getItem(LocalStorageKeys.phone)
 		if (!storedPhone) return null
 
-		const display = [...storedPhone]
-			.map((c, i) => (i > 0 && i % 2 === 0 ? ` ${c}` : c))
-			.join('')
-
-		const withIndicator = storedPhone.replace(/^0/g, '+33')
-
-		return { display, withIndicator }
-	}, [isClientSide])
+		return formatPhoneNumber(storedPhone, langKey === 'fr' ? 'fr' : 'intl')
+	}, [isClientSide, langKey])
 
 	return (
 		<Section title="Contact">
@@ -57,8 +55,8 @@ export const ContactSection: FC = () => {
 				{phone && (
 					<SocialLink
 						icon="phone"
-						label={phone.display}
-						link={`tel:${phone.withIndicator}`}
+						label={phone.formated}
+						link={`tel:${phone.normalized}`}
 					/>
 				)}
 				<SocialLink
