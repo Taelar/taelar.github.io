@@ -22,7 +22,10 @@ $reducedPagePadding: 24px;
 	box-shadow: $shadowMedium;
 
 	@media print {
+		overflow-y: hidden;
+		max-height: $resumeHeight;
 		width: 100%;
+		box-shadow: none;
 	}
 }
 

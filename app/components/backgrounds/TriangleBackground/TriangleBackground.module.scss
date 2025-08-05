@@ -26,6 +26,10 @@
 
 	background: center / cover url('/background_triangle.png') no-repeat;
 
+	@media print {
+		display: none;
+	}
+
 	&::after {
 		position: fixed;
 		display: block;
@@ -49,5 +53,9 @@
 		);
 
 		animation: angle-rotate 50s linear infinite;
+
+		@media print {
+			display: none;
+		}
 	}
 }
