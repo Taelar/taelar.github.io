@@ -1,5 +1,6 @@
-const phoneRegex = /^((?:\+\d{2})|(?:0))(\d{9})$/
+export const phoneRegex = /^((?:\+\d{1,2})|(?:0))(\d{9})$/
 const phoneIndicatorFrance = '+33'
+
 /**
  * Extrait le numéro de téléphone au format international sans indicatif.
  *

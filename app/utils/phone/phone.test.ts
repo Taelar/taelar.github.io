@@ -1,6 +1,10 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import { describe, it, expect } from 'vitest'
-import { formatPhoneNumber, getIntlPhoneNumber } from './phone.utils'
+import {
+	formatPhoneNumber,
+	getIntlPhoneNumber,
+	phoneRegex,
+} from './phone.utils'
 
 describe('getIntlPhoneNumber', () => {
 	it('should extract core number from +33 prefix', () => {
@@ -99,5 +103,55 @@ describe('formatPhoneNumber', () => {
 	it('should return null for null', () => {
 		// @ts-expect-error
 		expect(formatPhoneNumber(null, 'fr')).toBeNull()
+	})
+})
+
+describe('phoneRegex', () => {
+	it('should match valid French number with 0 prefix', () => {
+		const match = '0612345678'.match(phoneRegex)
+		expect(match).not.toBeNull()
+		expect(match?.[1]).toBe('0')
+		expect(match?.[2]).toBe('612345678')
+	})
+
+	it('should match valid French number with "0" prefix', () => {
+		const match = '0612345678'.match(phoneRegex)
+		expect(match).not.toBeNull()
+		expect(match?.[1]).toBe('0')
+		expect(match?.[2]).toBe('612345678')
+	})
+
+	it('should match valid number with 1-digit prefix (+7)', () => {
+		const match = '+7612345678'.match(phoneRegex)
+		expect(match).not.toBeNull()
+		expect(match?.[1]).toBe('+7')
+		expect(match?.[2]).toBe('612345678')
+	})
+
+	it('should match valid number with 2-digit prefix (+33)', () => {
+		const match = '+33612345678'.match(phoneRegex)
+		expect(match).not.toBeNull()
+		expect(match?.[1]).toBe('+33')
+		expect(match?.[2]).toBe('612345678')
+	})
+
+	it('should not match number with invalid prefix', () => {
+		expect('1512345678'.match(phoneRegex)).toBeNull()
+	})
+
+	it('should not match number with too few digits', () => {
+		expect('061234567'.match(phoneRegex)).toBeNull()
+	})
+
+	it('should not match number with too many digits', () => {
+		expect('06123456789'.match(phoneRegex)).toBeNull()
+	})
+
+	it('should not match number with letters', () => {
+		expect('06A2345678'.match(phoneRegex)).toBeNull()
+	})
+
+	it('should not match empty string', () => {
+		expect(''.match(phoneRegex)).toBeNull()
 	})
 })
