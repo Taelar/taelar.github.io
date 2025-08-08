@@ -1,7 +1,7 @@
 import { isEqual, reduce } from 'lodash-es'
 import { useCallback, useMemo } from 'react'
 import { useSearchParams } from 'react-router'
-import { isDefined } from '~/utils/object.utils'
+import { isDefined } from '~/utils/object'
 
 type Filters = Record<string, unknown>
 

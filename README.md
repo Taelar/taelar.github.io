@@ -8,7 +8,7 @@ Code
 
 - Double check l'accessibilité
 - Tester les utils et regex
-- Test de composants ?
+- Test de composants / Storybook ?
 - Watermark "Générée via ..." à l'impression ?
 
 ## Installation et utilisation
