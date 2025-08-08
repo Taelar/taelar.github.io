@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { initWaterCanvas } from './useWaterCanvas.animation'
-import { randInt } from '~/utils/number.utils'
+import { randInt } from '~/utils/number'
 
 export const useWaterCanvas = () => {
 	const animationRef = useRef<ReturnType<typeof initWaterCanvas>>(undefined)
