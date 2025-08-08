@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import type { LoaderFunctionArgs } from 'react-router'
 import { getLangFromContext } from './loader.utils'
 import { describe, it, expect } from 'vitest'
@@ -9,7 +10,8 @@ describe('getLangFromContext', () => {
 	})
 
 	it('should return the language if present in context', () => {
-		const context = { request: { url: '/en' } } as LoaderFunctionArgs
+		const context = { request: { url: '/en' } }
+		// @ts-expect-error
 		expect(getLangFromContext(context)).toBe('en')
 	})
 

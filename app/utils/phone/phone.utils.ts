@@ -1,11 +1,28 @@
 const phoneRegex = /^((?:\+\d{2})|(?:0))(\d{9})$/
 const phoneIndicatorFrance = '+33'
-
-/* Todo : Commentaire étoffé, mentionner que le retour est sans indicateur */
+/**
+ * Extrait le numéro de téléphone au format international sans indicatif.
+ *
+ * Cette fonction prend en entrée une chaîne représentant un numéro de téléphone,
+ * qui peut commencer par l'indicatif internationnal ou "0" et contenir ou non des espaces.
+ * Elle retourne uniquement la partie "noyau" du numéro (9 chiffres), sans l'indicatif pays.
+ *
+ * Exemples :
+ *   "+33612345678" => "612345678"
+ *   "0612345678"   => "612345678"
+ *   "06 12 34 56 78" => "612345678"
+ *
+ * Retourne null si le format du numéro est invalide.
+ *
+ * @param input Le numéro de téléphone à traiter.
+ * @returns Le numéro sans indicatif pays (9 chiffres) ou null si invalide.
+ */
 export const getIntlPhoneNumber = (input: string) => {
-	const match = input.replaceAll(' ', '').match(phoneRegex)
+	if (!input) {
+		return null
+	}
 
-	console.log(match)
+	const match = input.replaceAll(' ', '').match(phoneRegex)
 
 	if (!match) {
 		return null

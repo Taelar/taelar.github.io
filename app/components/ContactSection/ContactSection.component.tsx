@@ -4,7 +4,7 @@ import styles from './ContactSection.module.scss'
 import { Section } from '../Section'
 import { SocialLink } from '../SocialLink'
 import { LocalStorageKeys } from '~/model/localStorage'
-import { formatPhoneNumber } from '~/utils/phone.utils'
+import { formatPhoneNumber } from '~/utils/phone'
 import { LangContext } from '~/context/Lang.context'
 
 const cx = classNames.bind(styles)
