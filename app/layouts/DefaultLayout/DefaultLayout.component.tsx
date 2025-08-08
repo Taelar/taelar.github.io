@@ -12,7 +12,7 @@ import {
 	SUPPORTED_LANG_KEYS,
 	type SupportedLangKeys,
 } from '~/model/lang/lang.model'
-import { getLangFromContext } from '~/utils/loader.utils'
+import { getLangFromContext } from '~/utils/loader'
 import { LangContext } from '~/context/Lang.context'
 
 type SearchParams = {

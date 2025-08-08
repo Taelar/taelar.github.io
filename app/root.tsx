@@ -14,7 +14,7 @@ import './style/app.scss'
 import './style/reset.scss'
 import './style/elements.scss'
 import { type SupportedLangKeys } from './model/lang'
-import { getLangFromContext } from './utils/loader.utils'
+import { getLangFromContext } from './utils/loader'
 
 interface RootLoaderData {
 	lang: SupportedLangKeys

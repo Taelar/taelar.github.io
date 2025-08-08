@@ -10,15 +10,14 @@ export const getLangFromContext = (args: LoaderFunctionArgs) => {
 
 	try {
 		const { url } = args.request
-		const path = new URL(url).pathname
-		const splited = path.split('/')
+		const splited = url.split('/')
 		const parsedLang = splited.at(1) as SupportedLangKeys | undefined
 
 		if (parsedLang && SUPPORTED_LANG_KEYS.includes(parsedLang)) {
 			lang = parsedLang
 		}
-	} catch (e) {
-		console.warn('Failed to parse current lang', e)
+	} catch {
+		// Intentionally left empty: fallback to DEFAULT_LANGUAGE
 	}
 
 	return lang

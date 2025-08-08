@@ -8,6 +8,7 @@ Code
 
 - Double check l'accessibilité
 - Tester les utils et regex
+- Faire tourner les TU dans la CI
 - Test de composants / Storybook ?
 - Watermark "Générée via ..." à l'impression ?
 
