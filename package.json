@@ -8,7 +8,7 @@
 	"scripts": {
 		"start": "react-router dev",
 		"build": "react-router build",
-		"test": "vitest --browser",
+		"test": "vitest",
 		"typecheck": "react-router typegen && tsc",
 		"start:prod": "react-router-serve ./build/server/index.js",
 		"husky": "husky",

@@ -7,10 +7,8 @@ Bienvenue sur mon CV qui sert vaguement de portfolio. Je mets un peu tout et n'i
 Code
 
 - Double check l'accessibilité
-- Tester les utils et regex
 - Faire tourner les TU dans la CI
 - Test de composants / Storybook ?
-- Watermark "Générée via ..." à l'impression ?
 
 ## Installation et utilisation
 
