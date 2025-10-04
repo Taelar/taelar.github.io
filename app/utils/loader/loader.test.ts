@@ -16,14 +16,14 @@ describe('getLangFromContext', () => {
 	})
 
 	it('should handle context with undefined url', () => {
-		const context = {
-			request: { url: undefined },
-		} as unknown as LoaderFunctionArgs
+		const context = { request: { url: undefined } }
+		// @ts-expect-error
 		expect(getLangFromContext(context)).toBe('fr')
 	})
 
 	it('should handle context with null url', () => {
-		const context = { request: { url: null } } as unknown as LoaderFunctionArgs
+		const context = { request: { url: null } }
+		// @ts-expect-error
 		expect(getLangFromContext(context)).toBe('fr')
 	})
 
@@ -55,5 +55,17 @@ describe('getLangFromContext', () => {
 	it('should return "fr" if the url is malformed', () => {
 		const context = { request: { url: 'not-a-url' } } as LoaderFunctionArgs
 		expect(getLangFromContext(context)).toBe('fr')
+	})
+
+	it('should return the language if present in a full url', () => {
+		const context = { request: { url: 'https://fulldomain.io/en' } }
+		// @ts-expect-error
+		expect(getLangFromContext(context)).toBe('en')
+	})
+
+	it('should return the language if present in a full nested url', () => {
+		const context = { request: { url: 'https://fulldomain.io/en/page' } }
+		// @ts-expect-error
+		expect(getLangFromContext(context)).toBe('en')
 	})
 })
