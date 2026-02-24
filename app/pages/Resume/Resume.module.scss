@@ -110,10 +110,3 @@ $reducedPagePadding: 24px;
 		justify-content: space-between;
 	}
 }
-
-.languages {
-	display: grid;
-	grid-auto-flow: column;
-	grid-template-columns: 1fr 1fr;
-	gap: 18px;
-}

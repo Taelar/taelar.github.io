@@ -1,0 +1,4 @@
+export * from './ExperiencesSection'
+export * from './LangSection'
+export * from './EducationSection'
+export * from './ProjectsSection'
