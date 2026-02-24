@@ -16,7 +16,7 @@
 }
 
 .background {
-	position: absolute;
+	position: fixed;
 	z-index: $zIndexBackground;
 	width: 100%;
 	min-height: 100vh;
@@ -24,7 +24,7 @@
 	top: 0;
 	bottom: 0;
 
-	background: center / cover url('/background_triangle.png') no-repeat;
+	background: center / cover url('/background_triangle.png');
 
 	@media print {
 		display: none;
