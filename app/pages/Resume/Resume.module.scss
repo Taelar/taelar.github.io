@@ -21,59 +21,10 @@
 	}
 }
 
-.header {
-	display: grid;
-	grid-template-columns: 2fr 1fr;
-	align-items: end;
-
-	@container (max-width: #{$breakpointSmallLayout}) {
-		gap: 48px 0;
-		grid-template-columns: 1fr;
-		justify-items: center;
-	}
-}
-
 .page {
 	display: flex;
 	flex-direction: column;
 	gap: 48px;
-}
-
-.nameAndContact {
-	align-self: start;
-
-	.mainTitle {
-		font-size: 86px;
-		font-weight: 700;
-		line-height: 0.9;
-
-		@container (max-width: #{$breakpointSmallLayout}) {
-			font-size: 64px;
-		}
-
-		@media print {
-			/* Fix: Chromium applique un scaling différent entre écran et impression
-       Scale 1.023 compense l'écart de rendu pour correspondre à l'affichage viewport */
-			transform: scale(1.023);
-			transform-origin: left top; /* Ajuster selon vos besoins */
-		}
-	}
-
-	.subTitle {
-		font-size: 16px;
-		font-weight: 600;
-		padding-bottom: 24px;
-	}
-
-	.mainTitle,
-	.subTitle {
-		text-transform: uppercase;
-	}
-
-	.contact {
-		margin-top: 32px;
-		color: $darkBlue;
-	}
 }
 
 .content {
@@ -91,6 +42,19 @@
 	.contentSubContainer {
 		display: flex;
 		flex-direction: column;
-		gap: 20px;
+		gap: $interblock;
+	}
+}
+
+.footerContact {
+	display: flex;
+	flex-direction: column;
+	gap: $interblock;
+
+	padding-top: 64px;
+
+	.name {
+		font-size: 1.25rem;
+		font-weight: bold;
 	}
 }

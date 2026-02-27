@@ -1,16 +1,16 @@
 import { useContext, type FC } from 'react'
 import classNames from 'classnames/bind'
 import styles from './Resume.module.scss'
-import { ProfilePicture } from '~/components/ProfilePicture'
-import { ContactSection } from '~/components/ContactSection'
 import { LangContext } from '~/context/Lang.context'
 import {
 	EducationSection,
 	ExperiencesSection,
+	Header,
 	LangSection,
 	ProjectsSection,
 } from './components'
 import { DocumentPage } from '~/components/DocumentPage'
+import { ContactSection } from '~/components/ContactSection'
 
 const cx = classNames.bind(styles)
 
@@ -26,17 +26,7 @@ export const Resume: FC = () => {
 			<meta name="description" content={langFile.global.description} />
 			<section className={cx('main')}>
 				<DocumentPage layout="header" className={cx('page')}>
-					<div className={cx('header')}>
-						<div className={cx('nameAndContact')}>
-							<p className={cx('subTitle')}>{langFile.global.jobTitle}</p>
-							<h1 className={cx('mainTitle')}>{langFile.global.fullName}</h1>
-							<div className={cx('contact')}>
-								<ContactSection />
-							</div>
-						</div>
-						<ProfilePicture />
-					</div>
-
+					<Header langFile={langFile} />
 					<div className={cx('content')}>
 						<div className={cx('contentSubContainer')}>
 							<ExperiencesSection langFile={langFile} />
@@ -50,6 +40,10 @@ export const Resume: FC = () => {
 				<DocumentPage layout="footer">
 					<div className={cx('content')}>
 						<ProjectsSection langFile={langFile} />
+					</div>
+					<div className={cx('footerContact')}>
+						<p className={cx('name')}>{langFile.global.fullName}</p>
+						<ContactSection />
 					</div>
 				</DocumentPage>
 			</section>

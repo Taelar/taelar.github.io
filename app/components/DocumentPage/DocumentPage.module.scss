@@ -18,20 +18,22 @@ $reducedPagePadding: 24px;
 	background-color: $grey;
 	box-shadow: $shadowMedium;
 
+	--bg-breakpoint: 230px;
+
 	@media print {
 		overflow-y: hidden;
 		box-shadow: none;
 	}
 
-	@container (max-width: #{$breakpointSmallLayout}) {
+	/* @container (max-width: #{$breakpointSmallLayout}) {
 		--bg-breakpoint: 200px;
+	} */
+
+	@media (max-width: #{$resumeWidth}) {
+		max-height: unset;
+		min-height: unset;
 	}
 
-	@container (max-width: #{$resumeWidth}) {
-		max-height: none;
-	}
-
-	--bg-breakpoint: 230px;
 	&.header {
 		background: linear-gradient(
 			to bottom,
@@ -41,6 +43,7 @@ $reducedPagePadding: 24px;
 
 		padding: $pageOffset $pagePadding $pagePadding;
 		@container (max-width: #{$breakpointSmallLayout}) {
+			--bg-breakpoint: 200px;
 			padding: $pageOffset $reducedPagePadding $interblock;
 		}
 	}
