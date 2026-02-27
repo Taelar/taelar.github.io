@@ -1,0 +1,60 @@
+@use '~/style/variables' as *;
+
+$pageOffset: 70px;
+$pagePadding: 48px;
+$reducedPagePadding: 24px;
+
+.page {
+	max-width: $resumeWidth;
+	min-height: $resumeHeight;
+	max-height: $resumeHeight;
+	width: 100%;
+	padding: $pageOffset $pagePadding;
+
+	display: flex;
+	justify-content: space-between;
+	flex-direction: column;
+
+	background-color: $grey;
+	box-shadow: $shadowMedium;
+
+	@media print {
+		overflow-y: hidden;
+		box-shadow: none;
+	}
+
+	@container (max-width: #{$breakpointSmallLayout}) {
+		--bg-breakpoint: 200px;
+	}
+
+	@container (max-width: #{$resumeWidth}) {
+		max-height: none;
+	}
+
+	--bg-breakpoint: 230px;
+	&.header {
+		background: linear-gradient(
+			to bottom,
+			$darkBlue var(--bg-breakpoint),
+			$grey var(--bg-breakpoint) 100%
+		);
+
+		padding: $pageOffset $pagePadding $pagePadding;
+		@container (max-width: #{$breakpointSmallLayout}) {
+			padding: $pageOffset $reducedPagePadding $interblock;
+		}
+	}
+
+	&.footer {
+		background: linear-gradient(
+			to top,
+			$darkBlue var(--bg-breakpoint),
+			$grey var(--bg-breakpoint) 100%
+		);
+
+		padding: $pagePadding $pagePadding $pageOffset;
+		@container (max-width: #{$breakpointSmallLayout}) {
+			padding: 0 $reducedPagePadding $pageOffset;
+		}
+	}
+}

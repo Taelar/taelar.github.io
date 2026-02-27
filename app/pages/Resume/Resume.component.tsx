@@ -10,6 +10,7 @@ import {
 	LangSection,
 	ProjectsSection,
 } from './components'
+import { DocumentPage } from '~/components/DocumentPage'
 
 const cx = classNames.bind(styles)
 
@@ -24,27 +25,33 @@ export const Resume: FC = () => {
 			<title>{pageTitle}</title>
 			<meta name="description" content={langFile.global.description} />
 			<section className={cx('main')}>
-				<div className={cx('header')}>
-					<div className={cx('nameAndContact')}>
-						<p className={cx('subTitle')}>{langFile.global.jobTitle}</p>
-						<h1 className={cx('mainTitle')}>{langFile.global.fullName}</h1>
-						<div className={cx('contact')}>
-							<ContactSection />
+				<DocumentPage layout="header" className={cx('page')}>
+					<div className={cx('header')}>
+						<div className={cx('nameAndContact')}>
+							<p className={cx('subTitle')}>{langFile.global.jobTitle}</p>
+							<h1 className={cx('mainTitle')}>{langFile.global.fullName}</h1>
+							<div className={cx('contact')}>
+								<ContactSection />
+							</div>
+						</div>
+						<ProfilePicture />
+					</div>
+
+					<div className={cx('content')}>
+						<div className={cx('contentSubContainer')}>
+							<ExperiencesSection langFile={langFile} />
+						</div>
+						<div className={cx('contentSubContainer')}>
+							<EducationSection langFile={langFile} />
+							<LangSection langFile={langFile} />
 						</div>
 					</div>
-					<ProfilePicture />
-				</div>
-
-				<div className={cx('content')}>
-					<div className={cx('contentSubContainer')}>
-						<ExperiencesSection langFile={langFile} />
-						<LangSection langFile={langFile} />
-					</div>
-					<div className={cx('contentSubContainer')}>
-						<EducationSection langFile={langFile} />
+				</DocumentPage>
+				<DocumentPage layout="footer">
+					<div className={cx('content')}>
 						<ProjectsSection langFile={langFile} />
 					</div>
-				</div>
+				</DocumentPage>
 			</section>
 		</>
 	)

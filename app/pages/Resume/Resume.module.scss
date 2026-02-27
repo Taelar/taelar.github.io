@@ -1,55 +1,42 @@
 @use '~/style/variables' as *;
 
-$pagePadding: 48px;
-$reducedPagePadding: 24px;
-
 .main {
 	position: relative;
 	z-index: $zIndexMainContent;
 	container-type: inline-size;
 
-	margin-left: auto;
-	margin-right: auto;
-
 	display: flex;
-	justify-content: space-between;
-
-	max-width: $resumeWidth;
-	min-height: $resumeHeight;
-
 	flex-direction: column;
-	background-color: $grey;
-	box-shadow: $shadowMedium;
+	align-items: center;
+	gap: 16px;
+
+	@media (max-width: #{$resumeWidth}) {
+		gap: 0;
+	}
 
 	@media print {
 		overflow-y: hidden;
-		max-height: $resumeHeight;
 		width: 100%;
-		box-shadow: none;
+		gap: 0;
 	}
 }
 
 .header {
-	--bg-breakpoint: 230px;
-	background: linear-gradient(
-		to bottom,
-		$darkBlue var(--bg-breakpoint),
-		$grey var(--bg-breakpoint) 100%
-	);
-
-	padding: 70px $pagePadding 0;
 	display: grid;
 	grid-template-columns: 2fr 1fr;
 	align-items: end;
 
 	@container (max-width: #{$breakpointSmallLayout}) {
-		--bg-breakpoint: 200px;
-
 		gap: 48px 0;
 		grid-template-columns: 1fr;
-		padding: 70px $reducedPagePadding $reducedPagePadding;
 		justify-items: center;
 	}
+}
+
+.page {
+	display: flex;
+	flex-direction: column;
+	gap: 48px;
 }
 
 .nameAndContact {
@@ -91,16 +78,14 @@ $reducedPagePadding: 24px;
 
 .content {
 	display: grid;
-	gap: 18px;
+	gap: $interblock;
 	grid-template-columns: 2fr 1fr;
 	grid-auto-flow: row;
-	padding: 24px $pagePadding $pagePadding;
 
 	color: $darkBlue;
 
 	@container (max-width: #{$breakpointSmallLayout}) {
 		grid-template-columns: 1fr;
-		padding: $reducedPagePadding $reducedPagePadding;
 	}
 
 	.contentSubContainer {
