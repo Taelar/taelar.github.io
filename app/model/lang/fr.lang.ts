@@ -96,16 +96,22 @@ export const LANG_FILE_FR = {
 		},
 		projects: {
 			title: 'Projets',
-			proj1: {
+			gitlabbot: {
 				title: 'Gitlab Bot',
 				context: 'Follow Health',
 				content:
 					"Notifications et automatisations liées aux outils de l'équipe technique (Slack, Gitlab, Jira)",
 			},
-			proj2: {
+			discordbot: {
 				title: 'Discord Bot',
 				context: 'Projet personnel',
 				content: 'Bot pour un serveur privé servant à "ajouter de l\'ambiance"',
+			},
+			resume: {
+				title: 'CV en ligne',
+				context: 'Projet personnel',
+				content:
+					"Ce site web, qui me sert de CV et de portfolio, est un projet personnel sur lequel je travaille depuis quelques temps pour expérimenter et apprendre de nouvelles technologies. C'est aussi un terrain d'essai pour des idées de design et d'UX que j'ai envie de tester. Je le considère comme un projet à long terme, qui évolue au fil du temps avec mes compétences et mes intérêts.",
 			},
 		},
 	},

@@ -97,16 +97,21 @@ export const LANG_FILE_EN: LangFile = {
 		},
 		projects: {
 			title: 'Projects',
-			proj1: {
+			gitlabbot: {
 				title: 'Gitlab Bot',
 				context: 'Follow Health',
 				content:
 					'Notifications and automations related to technical team tools (Slack, Gitlab, Jira)',
 			},
-			proj2: {
+			discordbot: {
 				title: 'Discord Bot',
 				context: 'Personal project',
 				content: 'Bot for a private server used to "add atmosphere"',
+			},
+			resume: {
+				title: 'This Resume',
+				context: 'Personal project',
+				content: 'TODO',
 			},
 		},
 	},
