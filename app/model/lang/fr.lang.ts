@@ -26,7 +26,17 @@ export const LANG_FILE_FR = {
 	resume: {
 		experiences: {
 			title: 'Expériences',
-			exp1: {
+			ovh: {
+				jobTitle: 'Ingénieur Front-end Senior',
+				enterprise: 'OVHCloud | Rennes',
+				periods: {
+					contract: 'Depuis Novembre 2025',
+				},
+				content: {
+					cont1: 'TODO',
+				},
+			},
+			follow: {
 				jobTitle: 'Développeur Front-end',
 				enterprise: 'Follow Health | Rennes',
 				periods: {
@@ -47,7 +57,7 @@ export const LANG_FILE_FR = {
 					cont9: 'Création de micro-service avec Nest.js',
 				},
 			},
-			exp2: {
+			imar: {
 				jobTitle: 'Développeur Web',
 				enterprise: 'IMaR | Tralee, Irlande',
 				periods: {

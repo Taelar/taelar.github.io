@@ -9,12 +9,14 @@ export const ProjectsSection: FC<ProjectsSectionProps> = ({ langFile }) => {
 			<Card
 				leftTitle={langFile.resume.projects.proj1.title}
 				subTitles={[langFile.resume.projects.proj1.context]}
+				tags={['TODO']}
 			>
 				<span>{langFile.resume.projects.proj1.content}</span>
 			</Card>
 			<Card
 				leftTitle={langFile.resume.projects.proj2.title}
 				subTitles={[langFile.resume.projects.proj2.context]}
+				tags={['TODO']}
 			>
 				<span>{langFile.resume.projects.proj2.content}</span>
 			</Card>
