@@ -26,6 +26,7 @@ export const LANG_FILE_FR = {
 	resume: {
 		experiences: {
 			title: 'Expériences',
+			titleNext: 'Expériences (Suite)',
 			ovh: {
 				jobTitle: 'Ingénieur Front-end Senior',
 				enterprise: 'OVHCloud | Rennes',
@@ -33,7 +34,10 @@ export const LANG_FILE_FR = {
 					contract: 'Depuis Novembre 2025',
 				},
 				content: {
-					cont1: 'TODO',
+					cont1: 'Ajout de fonctionnalités, corrections de bugs',
+					cont2: "Participation à l'adoption d'outils IA",
+					cont3:
+						"Mise en place d'architecture hexagonale dans un projet historique",
 				},
 			},
 			follow: {

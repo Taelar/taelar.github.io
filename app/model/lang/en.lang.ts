@@ -28,6 +28,7 @@ export const LANG_FILE_EN: LangFile = {
 	resume: {
 		experiences: {
 			title: 'Experience',
+			titleNext: 'Experience (Next)',
 			ovh: {
 				jobTitle: 'Senior Front-end Engineer',
 				enterprise: 'OVHCloud | Rennes',
@@ -35,7 +36,10 @@ export const LANG_FILE_EN: LangFile = {
 					contract: 'Since November 2025',
 				},
 				content: {
-					cont1: 'TODO',
+					cont1: 'Feature additions, bug fixes',
+					cont2: 'Participation in the adoption of IA tools',
+					cont3:
+						'Implementation of hexagonal architecture in a historical project',
 				},
 			},
 			follow: {

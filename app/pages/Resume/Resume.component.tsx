@@ -4,6 +4,7 @@ import styles from './Resume.module.scss'
 import { LangContext } from '~/context/Lang.context'
 import {
 	EducationSection,
+	ExperiencesNextSection,
 	ExperiencesSection,
 	Header,
 	LangSection,
@@ -39,7 +40,10 @@ export const Resume: FC = () => {
 				</DocumentPage>
 				<DocumentPage layout="footer">
 					<div className={cx('content')}>
-						<ProjectsSection langFile={langFile} />
+						<div className={cx('contentSubContainer')}>
+							<ExperiencesNextSection langFile={langFile} />
+							<ProjectsSection langFile={langFile} />
+						</div>
 					</div>
 					<div className={cx('footerContact')}>
 						<p className={cx('name')}>{langFile.global.fullName}</p>
