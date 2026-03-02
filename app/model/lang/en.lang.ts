@@ -124,7 +124,7 @@ export const LANG_FILE_EN: LangFile = {
 				context: 'Personal project',
 				content: {
 					cont1:
-						'This resume is generated via an online resume, which also serves as my portfolio and a technical and design experimentation ground',
+						'This resume is generated via a web app, which also serves as my portfolio and a technical and design experimentation ground',
 					cont2: 'Exported via browser API',
 				},
 			},

@@ -123,7 +123,7 @@ export const LANG_FILE_FR = {
 				context: 'Projet personnel',
 				content: {
 					cont1:
-						"Ce CV est généré via un CV en ligne, qui me sert également de portfolio et de terrain d'expérimentation technique et design",
+						"Ce CV est généré via une app web, qui me sert également de portfolio et de terrain d'expérimentation technique et design",
 					cont2: 'Exporté via API navigateur',
 				},
 			},
