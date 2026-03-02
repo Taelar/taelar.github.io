@@ -38,7 +38,7 @@ export const Resume: FC = () => {
 						</div>
 					</div>
 				</DocumentPage>
-				<DocumentPage layout="footer">
+				<DocumentPage layout="footer" className={cx('secondPage')}>
 					<div className={cx('content')}>
 						<div className={cx('contentSubContainer')}>
 							<ExperiencesNextSection langFile={langFile} />
