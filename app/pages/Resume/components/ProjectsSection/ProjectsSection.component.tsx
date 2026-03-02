@@ -9,23 +9,40 @@ export const ProjectsSection: FC<ProjectsSectionProps> = ({ langFile }) => {
 			<Card
 				leftTitle={langFile.resume.projects.gitlabbot.title}
 				subTitles={[langFile.resume.projects.gitlabbot.context]}
-				tags={['TODO']}
+				tags={[
+					'Gitlab API',
+					'Slack API',
+					'Jira API',
+					'Firebase Functions',
+					'Firestore',
+					'Typescript',
+				]}
 			>
-				<span>{langFile.resume.projects.gitlabbot.content}</span>
+				<span>{langFile.resume.projects.gitlabbot.content.cont1}</span>
+				<span>{langFile.resume.projects.gitlabbot.content.cont2}</span>
+				<span>{langFile.resume.projects.gitlabbot.content.cont3}</span>
 			</Card>
 			<Card
 				leftTitle={langFile.resume.projects.discordbot.title}
 				subTitles={[langFile.resume.projects.discordbot.context]}
-				tags={['TODO']}
+				tags={['Discord JS', 'Fly.io', 'Typescript']}
 			>
-				<span>{langFile.resume.projects.discordbot.content}</span>
+				<span>{langFile.resume.projects.discordbot.content.cont1}</span>
+				<span>{langFile.resume.projects.discordbot.content.cont2}</span>
 			</Card>
 			<Card
 				leftTitle={langFile.resume.projects.resume.title}
 				subTitles={[langFile.resume.projects.resume.context]}
-				tags={['TODO']}
+				tags={[
+					'React',
+					'React-router Framework',
+					'Github Actions',
+					'Typescript',
+					'Sass/Scss',
+				]}
 			>
-				<span>{langFile.resume.projects.resume.content}</span>
+				<span>{langFile.resume.projects.resume.content.cont1}</span>
+				<span>{langFile.resume.projects.resume.content.cont2}</span>
 			</Card>
 		</Section>
 	)

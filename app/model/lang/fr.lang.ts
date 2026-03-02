@@ -99,19 +99,29 @@ export const LANG_FILE_FR = {
 			gitlabbot: {
 				title: 'Gitlab Bot',
 				context: 'Follow Health',
-				content:
-					"Notifications et automatisations liées aux outils de l'équipe technique (Slack, Gitlab, Jira)",
+				content: {
+					cont1:
+						"Notifications et automatisations liées aux outils de l'équipe technique (Slack, Gitlab, Jira)",
+					cont2: "Reprise du projet à l'abandon",
+					cont3: 'Migration TS, ajout de test U, ajout de fonctionnalités',
+				},
 			},
 			discordbot: {
-				title: 'Discord Bot',
+				title: "Discord Bot (Shan'bot)",
 				context: 'Projet personnel',
-				content: 'Bot pour un serveur privé servant à "ajouter de l\'ambiance"',
+				content: {
+					cont1: 'Bot pour un serveur privé servant à "ajouter de l\'ambiance"',
+					cont2: 'Event listener, commandes slash, tests unitaires',
+				},
 			},
 			resume: {
 				title: 'CV en ligne',
 				context: 'Projet personnel',
-				content:
-					"Ce site web, qui me sert de CV et de portfolio, est un projet personnel sur lequel je travaille depuis quelques temps pour expérimenter et apprendre de nouvelles technologies. C'est aussi un terrain d'essai pour des idées de design et d'UX que j'ai envie de tester. Je le considère comme un projet à long terme, qui évolue au fil du temps avec mes compétences et mes intérêts.",
+				content: {
+					cont1:
+						"Ce CV est généré via un CV en ligne, qui me sert également de portfolio et de terrain d'expérimentation technique et design",
+					cont2: 'Exporté via API navigateur',
+				},
 			},
 		},
 	},

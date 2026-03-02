@@ -100,18 +100,29 @@ export const LANG_FILE_EN: LangFile = {
 			gitlabbot: {
 				title: 'Gitlab Bot',
 				context: 'Follow Health',
-				content:
-					'Notifications and automations related to technical team tools (Slack, Gitlab, Jira)',
+				content: {
+					cont1:
+						'Notifications and automations related to technical team tools (Slack, Gitlab, Jira)',
+					cont2: 'Project takeover from abandonment',
+					cont3: 'TS migration, addition of unit tests, addition of features',
+				},
 			},
 			discordbot: {
 				title: 'Discord Bot',
 				context: 'Personal project',
-				content: 'Bot for a private server used to "add atmosphere"',
+				content: {
+					cont1: 'Bot for a private server used to "add atmosphere"',
+					cont2: 'Event listener, slash commands, unit tests',
+				},
 			},
 			resume: {
 				title: 'This Resume',
 				context: 'Personal project',
-				content: 'TODO',
+				content: {
+					cont1:
+						'This resume is generated via an online resume, which also serves as my portfolio and a technical and design experimentation ground',
+					cont2: 'Exported via browser API',
+				},
 			},
 		},
 	},
