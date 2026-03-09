@@ -36,8 +36,9 @@ export const LANG_FILE_EN: LangFile = {
 					contract: 'Since November 2025',
 				},
 				content: {
-					cont1: 'Feature additions, bug fixes',
-					cont2: 'Participation in the adoption of IA tools',
+					cont1:
+						'Enrichment of the managed Kubernetes product interface (Public Cloud)',
+					cont2: 'AI-assisted development (Cursor, Claude Code)',
 					cont3:
 						'Implementation of hexagonal architecture in a historical project',
 				},

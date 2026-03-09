@@ -34,8 +34,9 @@ export const LANG_FILE_FR = {
 					contract: 'Depuis Novembre 2025',
 				},
 				content: {
-					cont1: 'Ajout de fonctionnalités, corrections de bugs',
-					cont2: "Participation à l'adoption d'outils IA",
+					cont1:
+						"Enrichissement de l'interface du produit Kubernetes managé (Public Cloud)",
+					cont2: 'Développement assisté par IA (Cursor, Claude Code)',
 					cont3:
 						"Mise en place d'architecture hexagonale dans un projet historique",
 				},
