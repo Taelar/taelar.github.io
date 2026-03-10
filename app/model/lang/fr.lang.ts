@@ -50,10 +50,12 @@ export const LANG_FILE_FR = {
 					internship: '4 mois (stage): Mai 2020 - Août 2020',
 				},
 				content: {
-					cont1: 'Ajout de fonctionnalités, corrections de bugs, UI design',
+					cont1:
+						'SaaS de gestion de patients à destination des professionnels de santé spécialisés',
 					cont2: 'Entretien et modernisation de la codebase principale',
 					cont3: 'Consignation, évaluation et réduction de la dette technique',
-					cont4: "Participation à l'amélioration des processus d'équipe",
+					cont4:
+						'Introduction du refinement technique dans un process agile Scrum',
 					cont5:
 						"Développement d'un éditeur de document avec plugins personnalisés",
 					cont6: 'Rendu de documents PDF dynamiques',
@@ -97,6 +99,23 @@ export const LANG_FILE_FR = {
 			educ3: {
 				title: 'DUT Informatique : Ingénierie Logicielle',
 				period: '2016 - 2018',
+			},
+		},
+		whatilike: {
+			title: "Ce que j'aime dans mon métier",
+			problems: {
+				title: 'Avoir des problèmes',
+				content: 'Ceux qui font réfléchir avant de coder.',
+			},
+			architecture: {
+				title: "L'architecture",
+				content:
+					'Concevoir des systèmes qui tiennent dans le temps, pas juste dans le sprint.',
+			},
+			detail: {
+				title: 'Le détail qui change tout',
+				content:
+					'Que ce soit en UI ou en code, l\'écart entre "ça marche" et "c\'est bien fait" est souvent là où ça devient intéressant.',
 			},
 		},
 		projects: {

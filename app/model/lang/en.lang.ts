@@ -52,10 +52,12 @@ export const LANG_FILE_EN: LangFile = {
 					internship: '4 months (internship): May 2020 - Aug 2020',
 				},
 				content: {
-					cont1: 'Feature additions, bug fixes, UI design',
+					cont1:
+						'SaaS for patient management aimed at specialized healthcare professionals',
 					cont2: 'Maintenance and modernization of the main codebase',
 					cont3: 'Documentation, assessment and reduction of technical debt',
-					cont4: 'Participation in team process improvements',
+					cont4:
+						'Introduction of technical refinement in an agile Scrum process',
 					cont5: 'Development of a document editor with custom plugins',
 					cont6: 'Dynamic PDF document rendering',
 					cont7: 'Migration from Redux Sagas to React-Query',
@@ -98,6 +100,22 @@ export const LANG_FILE_EN: LangFile = {
 			educ3: {
 				title: 'DUT Computer Science: Software Engineering',
 				period: '2016 - 2018',
+			},
+		},
+		whatilike: {
+			title: 'What I love about my job',
+			problems: {
+				title: 'Having problems',
+				content: 'The kind that make you think before you code.',
+			},
+			architecture: {
+				title: 'Architecture',
+				content: 'Designing systems that last beyond the sprint.',
+			},
+			detail: {
+				title: 'The detail that makes the difference',
+				content:
+					'Whether in UI or code, the gap between "it works" and "it\'s done right" is often where things get interesting.',
 			},
 		},
 		projects: {

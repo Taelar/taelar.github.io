@@ -9,6 +9,7 @@ import {
 	Header,
 	LangSection,
 	ProjectsSection,
+	WhatILikeSection,
 } from './components'
 import { DocumentPage } from '~/components/DocumentPage'
 import { ContactSection } from '~/components/ContactSection'
@@ -44,6 +45,7 @@ export const Resume: FC = () => {
 							<ExperiencesNextSection langFile={langFile} />
 							<ProjectsSection langFile={langFile} />
 						</div>
+						<WhatILikeSection langFile={langFile} />
 					</div>
 					<div className={cx('footerContact')}>
 						<p className={cx('name')}>{langFile.global.fullName}</p>
