@@ -1,8 +1,38 @@
-import { type ButtonGroupProps, type GroupOption } from './ButtonGroup.model'
+import type { IconName } from '../Icon/Icon.component'
 import styles from './ButtonGroup.module.scss'
 import { Icon } from '../Icon'
 import { Link } from 'react-router'
 import classNames from 'classnames'
+
+type BaseGroupOption = {
+	label: string
+}
+
+type LabelGroupOption<T> = BaseGroupOption & {
+	value: T
+}
+
+type UrlGroupOption = BaseGroupOption & {
+	url: string
+}
+
+type IntermediaryGroupOption<T> = LabelGroupOption<T> | UrlGroupOption
+
+type IconGroupOption<T> = IntermediaryGroupOption<T> & {
+	icon: IconName
+}
+
+type TextGroupOption<T> = IntermediaryGroupOption<T> & {
+	text: string
+}
+
+export type GroupOption<T> = IconGroupOption<T> | TextGroupOption<T>
+
+interface ButtonGroupProps<T> {
+	value: T
+	options: Array<GroupOption<T>>
+	onSelect?: (selected: GroupOption<T>) => void
+}
 
 export function ButtonGroup<T>({
 	value,

@@ -1,7 +1,15 @@
 import { type FC } from 'react'
-import { type CardProps } from './Card.model'
+import type { ReactNode } from 'react'
 import styles from './Card.module.scss'
 import Badge from './assets/badge.svg'
+
+interface CardProps {
+	leftTitle: string
+	rightTitle?: string
+	subTitles?: Array<string>
+	children?: ReactNode
+	tags?: Array<string>
+}
 
 export const Card: FC<CardProps> = ({
 	leftTitle,

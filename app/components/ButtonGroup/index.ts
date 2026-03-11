@@ -1,2 +1,1 @@
-export { ButtonGroup } from './ButtonGroup.component'
-export { type GroupOption } from './ButtonGroup.model'
+export { ButtonGroup, type GroupOption } from './ButtonGroup.component'

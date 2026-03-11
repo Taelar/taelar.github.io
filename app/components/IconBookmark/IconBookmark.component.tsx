@@ -1,9 +1,14 @@
 import { type FC } from 'react'
-import { type IconBookmarkProps } from './IconBookmark.model'
+import type { ReactNode } from 'react'
 import styles from './IconBookmark.module.scss'
 import classNames from 'classnames/bind'
 
 const cx = classNames.bind(styles)
+
+interface IconBookmarkProps {
+	children?: ReactNode
+	theme: 'light' | 'dark'
+}
 
 export const IconBookmark: FC<IconBookmarkProps> = ({ theme, children }) => {
 	return (

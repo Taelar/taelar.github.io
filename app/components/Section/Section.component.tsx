@@ -1,6 +1,11 @@
 import type { FC } from 'react'
-import type { SectionProps } from './Section.model'
+import type { ReactNode } from 'react'
 import styles from './Section.module.scss'
+
+interface SectionProps {
+	title: string
+	children?: ReactNode
+}
 
 export const Section: FC<SectionProps> = ({ title, children }) => {
 	return (
