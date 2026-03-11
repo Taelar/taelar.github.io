@@ -6,8 +6,8 @@ Bienvenue sur mon CV qui sert vaguement de portfolio. Je mets un peu tout et n'i
 
 Code
 
+- Ajuster l'ordre d'affichage de "Expériences (suite)" sur mobile
 - Double check l'accessibilité
-- Faire tourner les TU dans la CI
 - Test de composants / Storybook ?
 
 ## Installation et utilisation

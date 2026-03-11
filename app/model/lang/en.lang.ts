@@ -108,6 +108,11 @@ export const LANG_FILE_EN: LangFile = {
 				title: 'Having problems',
 				content: 'The kind that make you think before you code.',
 			},
+			teamwork: {
+				title: 'Team debates',
+				content:
+					'When you come in with five half-baked ideas and leave with a well-thought-out solution',
+			},
 			architecture: {
 				title: 'Architecture',
 				content: 'Designing systems that last beyond the sprint.',

@@ -107,6 +107,11 @@ export const LANG_FILE_FR = {
 				title: 'Avoir des problèmes',
 				content: 'Ceux qui font réfléchir avant de coder.',
 			},
+			teamwork: {
+				title: 'Les débats en équipe',
+				content:
+					"Quand on arrive avec cinq idées bancales et qu'on repart avec une solution millimétrée",
+			},
 			architecture: {
 				title: "L'architecture",
 				content:

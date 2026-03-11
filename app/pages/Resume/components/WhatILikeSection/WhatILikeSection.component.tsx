@@ -9,6 +9,9 @@ export const WhatILikeSection: FC<WhatILikeSectionProps> = ({ langFile }) => {
 			<Card leftTitle={langFile.resume.whatilike.architecture.title}>
 				<span>{langFile.resume.whatilike.architecture.content}</span>
 			</Card>
+			<Card leftTitle={langFile.resume.whatilike.teamwork.title}>
+				<span>{langFile.resume.whatilike.teamwork.content}</span>
+			</Card>
 			<Card leftTitle={langFile.resume.whatilike.problems.title}>
 				<span>{langFile.resume.whatilike.problems.content}</span>
 			</Card>
