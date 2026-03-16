@@ -1,7 +1,11 @@
 import { type FC } from 'react'
-import { type ExperiencesNextSectionProps } from './ExperiencesNextSection.model'
+import type { LangFile } from '~/model/lang'
 import { Section } from '~/components/Section'
 import { Card } from '~/components/Card'
+
+interface ExperiencesNextSectionProps {
+	langFile: LangFile
+}
 
 export const ExperiencesNextSection: FC<ExperiencesNextSectionProps> = ({
 	langFile,

@@ -1,7 +1,11 @@
 import { type FC } from 'react'
-import { type ProjectsSectionProps } from './ProjectsSection.model'
+import type { LangFile } from '~/model/lang'
 import { Card } from '~/components/Card'
 import { Section } from '~/components/Section'
+
+interface ProjectsSectionProps {
+	langFile: LangFile
+}
 
 export const ProjectsSection: FC<ProjectsSectionProps> = ({ langFile }) => {
 	return (

@@ -1,7 +1,11 @@
 import { type FC } from 'react'
-import { type EducationSectionProps } from './EducationSection.model'
+import type { LangFile } from '~/model/lang'
 import { Card } from '~/components/Card'
 import { Section } from '~/components/Section'
+
+interface EducationSectionProps {
+	langFile: LangFile
+}
 
 export const EducationSection: FC<EducationSectionProps> = ({ langFile }) => {
 	return (

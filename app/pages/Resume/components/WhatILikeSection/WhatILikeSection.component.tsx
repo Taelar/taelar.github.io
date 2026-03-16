@@ -1,7 +1,11 @@
 import { type FC } from 'react'
-import { type WhatILikeSectionProps } from './WhatILikeSection.model'
+import type { LangFile } from '~/model/lang'
 import { Section } from '~/components/Section/Section.component'
 import { Card } from '~/components/Card'
+
+interface WhatILikeSectionProps {
+	langFile: LangFile
+}
 
 export const WhatILikeSection: FC<WhatILikeSectionProps> = ({ langFile }) => {
 	return (

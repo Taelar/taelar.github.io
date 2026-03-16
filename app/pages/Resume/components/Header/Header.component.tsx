@@ -1,11 +1,15 @@
 import { type FC } from 'react'
-import { type HeaderProps } from './Header.model'
+import type { LangFile } from '~/model/lang'
 import styles from './Header.module.scss'
 import classNames from 'classnames/bind'
 import { ContactSection } from '~/components/ContactSection'
 import { ProfilePicture } from '~/components/ProfilePicture'
 
 const cx = classNames.bind(styles)
+
+interface HeaderProps {
+	langFile: LangFile
+}
 
 export const Header: FC<HeaderProps> = ({ langFile }) => {
 	return (
