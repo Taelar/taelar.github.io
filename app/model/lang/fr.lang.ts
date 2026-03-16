@@ -36,7 +36,7 @@ export const LANG_FILE_FR = {
 				content: {
 					cont1:
 						"Enrichissement de l'interface du produit Kubernetes managé (Public Cloud)",
-					cont2: 'Développement assisté par IA (Cursor, Claude Code)',
+					cont2: 'Développement assisté par IA',
 					cont3:
 						"Mise en place d'architecture hexagonale dans un projet historique",
 				},
@@ -120,7 +120,7 @@ export const LANG_FILE_FR = {
 			detail: {
 				title: 'Le détail qui change tout',
 				content:
-					'Que ce soit en UI ou en code, l\'écart entre "ça marche" et "c\'est bien fait" est souvent là où ça devient intéressant.',
+					'Que ce soit en UI ou en code, l\'écart entre "ça marche" et "c\'est fiable" est souvent là où ça devient intéressant.',
 			},
 		},
 		projects: {

@@ -38,7 +38,7 @@ export const LANG_FILE_EN: LangFile = {
 				content: {
 					cont1:
 						'Enrichment of the managed Kubernetes product interface (Public Cloud)',
-					cont2: 'AI-assisted development (Cursor, Claude Code)',
+					cont2: 'AI-assisted development',
 					cont3:
 						'Implementation of hexagonal architecture in a historical project',
 				},
@@ -120,7 +120,7 @@ export const LANG_FILE_EN: LangFile = {
 			detail: {
 				title: 'The detail that makes the difference',
 				content:
-					'Whether in UI or code, the gap between "it works" and "it\'s done right" is often where things get interesting.',
+					'Whether in UI or code, the gap between "it works" and "it\'s reliable" is often where things get interesting.',
 			},
 		},
 		projects: {

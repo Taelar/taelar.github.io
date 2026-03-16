@@ -12,7 +12,7 @@ export const ExperiencesSection: FC<ExperiencesSectionProps> = ({
 				leftTitle={langFile.resume.experiences.ovh.jobTitle}
 				rightTitle={langFile.resume.experiences.ovh.enterprise}
 				subTitles={[langFile.resume.experiences.ovh.periods.contract]}
-				tags={['React', 'Typescript']}
+				tags={['React', 'Typescript', 'Claude Code', 'Cursor']}
 			>
 				<span>{langFile.resume.experiences.ovh.content.cont1}</span>
 				<span>{langFile.resume.experiences.ovh.content.cont2}</span>
