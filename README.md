@@ -39,9 +39,13 @@ On justifie ici pourquoi certaines technos ont été choisies pour ce projet
 
 ### React
 
+TL;DR : Overkill pour le besoin de base mais permettra d'ajouter des fonctionnalités créatives.
+
 Je me suis demandé si l'utilisation d'une technologie comme React était vraiment justifiée étant donné le peu de besoin fonctionnel du projet, et s'il n'était pas plus adapté de directement écrire du HTML statique. Néanmoins je ne voulais me fermer aucune porte, pour ne pas bloquer d'éventuelles envies et des idées de fonctionnalités nécessitant un peu de logique client avancée. Le fait de fonctionner en composants, même pour un petit projet, a aussi l'avantage de garantir une cohérence forte dans le design sans avoir vraiment à y penser.
 
 ### React Router Framework mode (React + Vite + RR)
+
+TL;DR : Pratique pour le SSG et facile à intégrer
 
 Je cherchais pour ce projet une techno orientée génération d'HTML statique (SSG), car je savais qu'au bout du compte je n'aurais que peu (voire pas) de contenu dynamique. React Router Framework, héritier de Remix, est totalement dans cette optique de privilégier la génération de contenu statique au build time, en plus d'encourager l'utilisation d'HTML standard et cohérent. C'était également l'occasion d'essayer cette approche car je n'ai pas eu l'occasion de mettre RRF à l'épreuve avant ce projet.
 
@@ -53,9 +57,13 @@ Un dernier avantage est que RRF est assez malléable, au sens où on peut s'en s
 
 ### Typescript
 
+TL;DR : Typescript c'est bien, mangez-en
+
 A-t-on vraiment besoin de justifier l'utilisation de Typescript aujourd'hui ? Utiliser du javascript pur pour un projet qui va devoir survivre à l'épreuve du temps est un risque considérable. L'analyse de type de Typescript permet de garder un haut niveau de confiance dans la cohérence du code que l'on écrit, même si les phases de développement sont espacées dans le temps.
 
 ### CSS/Sass
+
+TL;DR : J'ai bien écrire moi-même le CSS et je n'aime pas Tailwind et similaire.
 
 J'apprécie personnellement les fonctionnalités de Sass, d'une part pour ses utilitaires et d'autres part pour sa déclaration de variables compilées. On pourrait dire que les variables CSS accomplissent aujourd'hui la mission des variables Sass mais je ne suis pas tout à fait d'accord. Leur principal défaut est de ne faire l'objet d'aucune analyse statique, les rendant sensibles aux erreurs de frappes. Un défaut que n'a pas Sass de par le fait qu'il est transpilé au build time.
 
@@ -63,13 +71,19 @@ Un avantage également de Sass est le fait que, bien qu'il soit une surcouche au
 
 ### Modules CSS
 
+TL;DR : Puisqu'on écrit du CSS, autant l'isoler par contexte.
+
 Les CSS modules ont pour vocation première d'isoler le style de chaque composant, évitant les conflits de nommages. C'est une missions qu'ils accomplissent parfaitement pour un temps de mise en place et d'utilisation minime.
 
 ### Github pages
 
+TL;DR : Adapté au statique, facile à utiliser.
+
 N'ayant pas besoin de fonctionnalité serveur, que ce soit de SSR ou de point d'API, je n'avais pas l'usage d'un host plus compliqué. Github pages brille par sa simplicité et sa fiabilité, le repo Git étant déjà sur Github, le choix paraissait naturel.
 
 ### Prettier / ESLint / Husky
+
+TL;DR : Gardent le code propre.
 
 Une chaîne d'outils très courantes pour garantir de bonnes pratiques de développement, que ce soit pour le formatage du code avec prettier ou l'analyse du code avec Eslint. Husky vient ici compléter la chaîne, pour augmenter la confiance dans le fait que le code commité sur le repository est conforme à la configuration Prettier.
 
