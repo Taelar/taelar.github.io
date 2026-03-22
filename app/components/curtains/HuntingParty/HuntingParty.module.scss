@@ -1,0 +1,31 @@
+@use '~/style/variables' as *;
+
+.veil {
+	position: fixed;
+	width: 100vw;
+	height: 100vh;
+	top: 0;
+	left: 0;
+	z-index: $zIndexCurtains;
+}
+
+.target {
+	background-color: rgba(0, 0, 0, 0.5); //test
+	position: absolute;
+
+	--target-spin-speed: 5000s; // Default value, overridden by inline styles
+
+	animation-name: rotate;
+	animation-duration: var(--target-spin-speed);
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+
+	@keyframes rotate {
+		from {
+			transform: rotate(0deg);
+		}
+		to {
+			transform: rotate(360deg);
+		}
+	}
+}

@@ -14,6 +14,7 @@ import {
 } from '~/model/lang/lang.model'
 import { getLangFromContext } from '~/utils/loader'
 import { LangContext } from '~/context/Lang.context'
+import { HuntingParty } from '~/components/curtains/HuntingParty'
 
 type SearchParams = {
 	background: 'triangle' | 'water'
@@ -96,6 +97,7 @@ const DefaultLayout: FC = () => {
 				<Outlet />
 				{searchParams.background === 'triangle' && <TriangleBackground />}
 				{searchParams.background === 'water' && <WaterBackground />}
+				<HuntingParty />
 			</main>
 		</LangContext>
 	)
