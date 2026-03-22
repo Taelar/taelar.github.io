@@ -1,0 +1,7 @@
+@use '~/style/variables' as *;
+
+.section {
+	@media (max-width: #{$breakpointSmallLayout}) {
+		display: none;
+	}
+}

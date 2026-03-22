@@ -1,0 +1,7 @@
+@use '~/style/variables' as *;
+
+.experienceNextContent {
+	@media (min-width: #{$breakpointSmallLayout}) {
+		display: none;
+	}
+}

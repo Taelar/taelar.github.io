@@ -2,6 +2,11 @@ import { type FC } from 'react'
 import type { LangFile } from '~/model/lang'
 import { Card } from '~/components/Card'
 import { Section } from '~/components/Section'
+import { ExperiencesNextContent } from '../ExperiencesNextSection'
+import classNames from 'classnames/bind'
+import styles from './ExperiencesSection.module.scss'
+
+const cx = classNames.bind(styles)
 
 interface ExperiencesSectionProps {
 	langFile: LangFile
@@ -53,6 +58,10 @@ export const ExperiencesSection: FC<ExperiencesSectionProps> = ({
 				<span>{langFile.resume.experiences.follow.content.cont8}</span>
 				<span>{langFile.resume.experiences.follow.content.cont9}</span>
 			</Card>
+			<ExperiencesNextContent
+				langFile={langFile}
+				className={cx('experienceNextContent')}
+			/>
 		</Section>
 	)
 }

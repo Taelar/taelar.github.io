@@ -2,6 +2,7 @@ import { type FC } from 'react'
 import type { ReactNode } from 'react'
 import styles from './Card.module.scss'
 import Badge from './assets/badge.svg'
+import classNames from 'classnames'
 
 interface CardProps {
 	leftTitle: string
@@ -9,6 +10,7 @@ interface CardProps {
 	subTitles?: Array<string>
 	children?: ReactNode
 	tags?: Array<string>
+	className?: string
 }
 
 export const Card: FC<CardProps> = ({
@@ -17,9 +19,10 @@ export const Card: FC<CardProps> = ({
 	subTitles,
 	children,
 	tags,
+	className,
 }) => {
 	return (
-		<div className={styles['card']}>
+		<div className={classNames(styles['card'], className)}>
 			<img className={styles['badge']} src={Badge} alt="" />
 			<span className={styles['leftTitle']}>{leftTitle}</span>
 			{rightTitle && <span className={styles['rightTitle']}>{rightTitle}</span>}

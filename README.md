@@ -6,7 +6,6 @@ Bienvenue sur mon CV qui sert vaguement de portfolio. Je mets un peu tout et n'i
 
 Code
 
-- Ajuster l'ordre d'affichage de "Expériences (suite)" sur mobile
 - Double check l'accessibilité
 - Test de composants / Storybook ?
 

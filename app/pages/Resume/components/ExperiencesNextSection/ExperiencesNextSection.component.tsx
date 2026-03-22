@@ -1,7 +1,11 @@
 import { type FC } from 'react'
 import type { LangFile } from '~/model/lang'
 import { Section } from '~/components/Section'
-import { Card } from '~/components/Card'
+import { ExperiencesNextContent } from './ExperiencesNextContent.component'
+import classNames from 'classnames/bind'
+import styles from './ExperiencesNextSection.module.scss'
+
+const cx = classNames.bind(styles)
 
 interface ExperiencesNextSectionProps {
 	langFile: LangFile
@@ -11,15 +15,11 @@ export const ExperiencesNextSection: FC<ExperiencesNextSectionProps> = ({
 	langFile,
 }) => {
 	return (
-		<Section title={langFile.resume.experiences.titleNext}>
-			<Card
-				leftTitle={langFile.resume.experiences.imar.jobTitle}
-				rightTitle={langFile.resume.experiences.imar.enterprise}
-				subTitles={[langFile.resume.experiences.imar.periods.internship]}
-				tags={['PHP', 'Laravel', 'SQL']}
-			>
-				<span>{langFile.resume.experiences.imar.content.cont1}</span>
-			</Card>
+		<Section
+			className={cx('section')}
+			title={langFile.resume.experiences.titleNext}
+		>
+			<ExperiencesNextContent langFile={langFile} />
 		</Section>
 	)
 }
