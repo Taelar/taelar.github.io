@@ -25,6 +25,9 @@ export const LANG_FILE_EN: LangFile = {
 			},
 		},
 		curtains: {
+			visualisation: {
+				title: 'Visualisation',
+			},
 			huntingParty: {
 				title: 'Click Party',
 			},
