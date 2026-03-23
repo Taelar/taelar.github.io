@@ -24,6 +24,11 @@ export const LANG_FILE_EN: LangFile = {
 				title: 'Background style : Triangles',
 			},
 		},
+		curtains: {
+			huntingParty: {
+				title: 'Click Party',
+			},
+		},
 	},
 	resume: {
 		experiences: {

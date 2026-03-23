@@ -22,6 +22,14 @@ export const LANG_FILE_FR = {
 				title: 'Style de fond : Triangles',
 			},
 		},
+		curtains: {
+			visualisation: {
+				title: 'Consultation',
+			},
+			huntingParty: {
+				title: 'Click Party',
+			},
+		},
 	},
 	resume: {
 		experiences: {

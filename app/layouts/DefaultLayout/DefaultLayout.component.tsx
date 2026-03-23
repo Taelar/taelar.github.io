@@ -18,6 +18,7 @@ import { HuntingParty } from '~/components/curtains/HuntingParty'
 
 type SearchParams = {
 	background: 'triangle' | 'water'
+	curtain: 'huntingParty' | null
 }
 
 const langOptions: Array<GroupOption<SupportedLangKeys>> =
@@ -41,6 +42,7 @@ const DefaultLayout: FC = () => {
 
 	const [searchParams, setSearchParams] = useSearchParamsState<SearchParams>({
 		background: 'triangle',
+		curtain: null,
 	})
 
 	const backgroundOptions = useMemo<
@@ -62,6 +64,22 @@ const DefaultLayout: FC = () => {
 			langFile.layout.background.triangles.title,
 			langFile.layout.background.water.title,
 		],
+	)
+
+	const curtainOptions = useMemo<Array<GroupOption<SearchParams['curtain']>>>(
+		() => [
+			{
+				value: null,
+				label: langFile.layout.curtains.visualisation.title,
+				icon: 'eye',
+			},
+			{
+				value: 'huntingParty',
+				label: langFile.layout.curtains.huntingParty.title,
+				icon: 'crosshair',
+			},
+		],
+		[langFile],
 	)
 
 	return (
@@ -87,18 +105,31 @@ const DefaultLayout: FC = () => {
 							if (!('value' in selected)) return
 
 							setSearchParams({
+								...searchParams,
 								background: selected.value,
 							})
 						}}
 					/>
 				</div>
+				<ButtonGroup
+					value={searchParams.curtain}
+					options={curtainOptions}
+					onSelect={(selected) => {
+						if (!('value' in selected)) return
+
+						setSearchParams({
+							...searchParams,
+							curtain: selected.value,
+						})
+					}}
+				/>
 			</header>
 			<main className={styles['main']}>
 				<Outlet />
 				{searchParams.background === 'triangle' && <TriangleBackground />}
 				{searchParams.background === 'water' && <WaterBackground />}
-				<HuntingParty />
 			</main>
+			{searchParams.curtain === 'huntingParty' && <HuntingParty />}
 		</LangContext>
 	)
 }
