@@ -7,8 +7,11 @@
 
 	display: flex;
 	flex-direction: column;
-	align-items: center;
 	gap: 16px;
+
+	width: $resumeWidth;
+	margin-left: auto;
+	margin-right: auto;
 
 	@media (max-width: #{$resumeWidth}) {
 		gap: 0;
@@ -16,7 +19,7 @@
 
 	@media print {
 		overflow-y: hidden;
-		width: 100%;
+		width: none;
 		gap: 0;
 	}
 }

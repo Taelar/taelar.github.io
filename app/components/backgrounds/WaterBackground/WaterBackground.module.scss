@@ -45,6 +45,10 @@
 		);
 		animation: angle-rotate 50s linear infinite;
 	}
+
+	@media print {
+		display: none;
+	}
 }
 
 .ripplesSelect {
