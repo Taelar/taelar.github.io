@@ -46,8 +46,9 @@ export const useHuntingParty = (ref: RefObject<HTMLDivElement | null>) => {
 		const containerWidth = ref.current?.offsetWidth || 0
 		const containerHeight = ref.current?.offsetHeight || 0
 
-		setTargets((prevTargets) =>
-			prevTargets.map((target) => {
+		setTargets((prevTargets) => {
+			// Update position and check for boundary collisions
+			const bounded = prevTargets.map((target) => {
 				const newTarget = structuredClone(target)
 
 				newTarget.x += newTarget.vx
@@ -66,16 +67,45 @@ export const useHuntingParty = (ref: RefObject<HTMLDivElement | null>) => {
 					newTarget.y - newTarget.radius < 0 ||
 					newTarget.y + newTarget.radius > containerHeight
 				) {
-					if (newTarget.id === 3) {
-						console.log(newTarget)
-					}
-
 					newTarget.vy = -newTarget.vy
 				}
 
 				return newTarget
-			}),
-		)
+			})
+
+			// Check for collisions between targets
+			const collisioned = bounded.map((target) => {
+				const newTarget = structuredClone(target)
+
+				for (const other of bounded) {
+					if (other.id === target.id) continue
+
+					const dx = other.x - target.x
+					const dy = other.y - target.y
+					const distance = Math.sqrt(dx * dx + dy * dy)
+					const minDist = target.radius + other.radius
+					if (distance >= minDist || distance === 0) continue
+
+					// 1. Normal vector (from target to other)
+					const nx = dx / distance
+					const ny = dy / distance
+
+					// 2. Relative velocity projected on the normal axis
+					const dvn =
+						(newTarget.vx - other.vx) * nx + (newTarget.vy - other.vy) * ny
+
+					// 3. If already moving apart, do nothing
+					if (dvn <= 0) continue
+
+					// 4. Impulse scalar (masses are equal and cancel out)
+					newTarget.vx -= dvn * nx
+					newTarget.vy -= dvn * ny
+				}
+				return newTarget
+			})
+
+			return collisioned
+		})
 	}, INITIAL_TICKS)
 
 	return { targets }
