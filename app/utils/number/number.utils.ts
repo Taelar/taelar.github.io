@@ -1,2 +1,2 @@
 export const randInt = (min: number, max: number) =>
-	Math.floor(Math.random() * max + min)
+	Math.floor(Math.random() * (max - min + 1)) + min

@@ -1,7 +1,11 @@
 import { useState, type RefObject } from 'react'
 import { useInterval } from 'usehooks-ts'
+import { randInt } from '~/utils/number'
 
 const INITIAL_TICKS = 25
+const SPAWN_INTERVAL = 1000
+const MIN_RADIUS = 20
+const MAX_RADIUS = 100
 
 export interface Target {
 	id: number
@@ -12,42 +16,15 @@ export interface Target {
 	radius: number
 }
 
-const MOCK_TARGETS: Array<Target> = [
-	{
-		id: 1,
-		x: 200,
-		y: 200,
-		vx: 7,
-		vy: -10,
-		radius: 50,
-	},
-	{
-		id: 2,
-		x: 400,
-		y: 400,
-		vx: -5,
-		vy: 8,
-		radius: 100,
-	},
-	{
-		id: 3,
-		x: 600,
-		y: 300,
-		vx: 10,
-		vy: -6,
-		radius: 30,
-	},
-]
-
 export const useHuntingParty = (ref: RefObject<HTMLDivElement | null>) => {
-	const [targets, setTargets] = useState<Array<Target>>(MOCK_TARGETS)
+	const [targets, setTargets] = useState<Array<Target>>([])
 
+	// Update position and check for boundary collisions
 	useInterval(() => {
 		const containerWidth = ref.current?.offsetWidth || 0
 		const containerHeight = ref.current?.offsetHeight || 0
 
 		setTargets((prevTargets) => {
-			// Update position and check for boundary collisions
 			const bounded = prevTargets.map((target) => {
 				const newTarget = structuredClone(target)
 
@@ -115,6 +92,62 @@ export const useHuntingParty = (ref: RefObject<HTMLDivElement | null>) => {
 			return collisioned
 		})
 	}, INITIAL_TICKS)
+
+	// Spawn new targets at intervals
+	useInterval(() => {
+		const containerWidth = ref.current?.offsetWidth || 0
+		const containerHeight = ref.current?.offsetHeight || 0
+
+		const radius = randInt(MIN_RADIUS, MAX_RADIUS)
+
+		// Randomly choose one of the 4 spawn areas (0:top, 1:bottom, 2:right, 3:left)
+		const spawnArea = randInt(0, 3)
+
+		let spawnX: number
+		let spawnY: number
+
+		const fixedAxisOffset = radius + 10
+		switch (spawnArea) {
+			case 0: // top
+				spawnX = randInt(fixedAxisOffset * -1, containerWidth + fixedAxisOffset)
+				spawnY = fixedAxisOffset * -1
+				break
+			case 1: // bottom
+				spawnX = randInt(fixedAxisOffset * -1, containerWidth + fixedAxisOffset)
+				spawnY = fixedAxisOffset + containerHeight
+				break
+
+			case 2: // right
+				spawnX = fixedAxisOffset + containerWidth
+				spawnY = randInt(
+					fixedAxisOffset * -1,
+					containerHeight + fixedAxisOffset,
+				)
+				break
+			case 3: // left
+				spawnX = fixedAxisOffset * -1
+				spawnY = randInt(
+					fixedAxisOffset * -1,
+					containerHeight + fixedAxisOffset,
+				)
+				break
+
+			default:
+				spawnX = 0
+				spawnY = 0
+		}
+
+		const newTarget: Target = {
+			id: Date.now(),
+			x: spawnX,
+			y: spawnY,
+			vx: randInt(-10, 10),
+			vy: randInt(-10, 10),
+			radius: radius,
+		}
+
+		setTargets((prevTargets) => [...prevTargets, newTarget])
+	}, SPAWN_INTERVAL)
 
 	return { targets }
 }
