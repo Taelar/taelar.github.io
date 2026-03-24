@@ -2,14 +2,15 @@
 
 .main {
 	position: relative;
-	z-index: $zIndexMainContent;
 	container-type: inline-size;
+	z-index: $zIndexMainContent;
 
 	display: flex;
 	flex-direction: column;
 	gap: 16px;
 
 	width: $resumeWidth;
+	max-width: 100%;
 	margin-left: auto;
 	margin-right: auto;
 

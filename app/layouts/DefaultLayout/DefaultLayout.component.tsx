@@ -124,10 +124,10 @@ const DefaultLayout: FC = () => {
 					}}
 				/>
 			</header>
+			{searchParams.background === 'triangle' && <TriangleBackground />}
+			{searchParams.background === 'water' && <WaterBackground />}
 			<main className={styles['main']}>
 				<Outlet />
-				{searchParams.background === 'triangle' && <TriangleBackground />}
-				{searchParams.background === 'water' && <WaterBackground />}
 			</main>
 			{searchParams.curtain === 'huntingParty' && <HuntingParty />}
 		</LangContext>

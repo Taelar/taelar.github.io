@@ -16,6 +16,7 @@
 	@media (max-width: #{$breakpointSmallLayout}) {
 		left: unset;
 		right: 15px;
+		flex-direction: row-reverse;
 	}
 
 	@media (max-width: #{$resumeWidth}) {
