@@ -54,18 +54,26 @@ export const useHuntingParty = (ref: RefObject<HTMLDivElement | null>) => {
 				newTarget.x += newTarget.vx
 				newTarget.y += newTarget.vy
 
-				// Check for horizontal boundaries
+				// If above left boundary, redirect towards the center
+				if (newTarget.x - newTarget.radius < 0 && newTarget.vx < 0) {
+					newTarget.vx = -newTarget.vx
+				}
+				// If above right boundary, redirect towards the center
 				if (
-					newTarget.x - newTarget.radius < 0 ||
-					newTarget.x + newTarget.radius > containerWidth
+					newTarget.x + newTarget.radius > containerWidth &&
+					newTarget.vx > 0
 				) {
 					newTarget.vx = -newTarget.vx
 				}
 
-				// Check for vertical boundaries
+				// If above top boundary, redirect towards the center
+				if (newTarget.y - newTarget.radius < 0 && newTarget.vy < 0) {
+					newTarget.vy = -newTarget.vy
+				}
+				// If above bottom boundary, redirect towards the center
 				if (
-					newTarget.y - newTarget.radius < 0 ||
-					newTarget.y + newTarget.radius > containerHeight
+					newTarget.y + newTarget.radius > containerHeight &&
+					newTarget.vy > 0
 				) {
 					newTarget.vy = -newTarget.vy
 				}
