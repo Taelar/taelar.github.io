@@ -4,6 +4,8 @@ import { randInt } from '~/utils/number'
 
 const INITIAL_TICKS = 25
 const SPAWN_INTERVAL = 1000
+const SATURATION_FACTOR = 0.8
+const SATURATION_CHECK_INTERVAL = 1000
 const MIN_RADIUS = 20
 const MAX_RADIUS = 100
 
@@ -16,8 +18,10 @@ export interface Target {
 	radius: number
 }
 
+const INITIAL_TARGETS: Array<Target> = []
+
 export const useHuntingParty = (ref: RefObject<HTMLDivElement | null>) => {
-	const [targets, setTargets] = useState<Array<Target>>([])
+	const [targets, setTargets] = useState<Array<Target>>(INITIAL_TARGETS)
 
 	// Update position and check for boundary collisions
 	useInterval(() => {
@@ -148,6 +152,23 @@ export const useHuntingParty = (ref: RefObject<HTMLDivElement | null>) => {
 
 		setTargets((prevTargets) => [...prevTargets, newTarget])
 	}, SPAWN_INTERVAL)
+
+	useInterval(() => {
+		if (targets.length === 0) return
+
+		const containerWidth = ref.current?.offsetWidth || 0
+		const containerHeight = ref.current?.offsetHeight || 0
+		const containerSurface = containerWidth * containerHeight
+
+		const usedSurface = targets.reduce((acc, target) => {
+			const targetSurface = Math.PI * target.radius * target.radius
+			return acc + targetSurface
+		}, 0)
+
+		if (usedSurface >= containerSurface * SATURATION_FACTOR) {
+			setTargets(INITIAL_TARGETS)
+		}
+	}, SATURATION_CHECK_INTERVAL)
 
 	return { targets }
 }
