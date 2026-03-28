@@ -6,6 +6,10 @@ Bienvenue sur mon CV qui sert vaguement de portfolio. Je mets un peu tout et n'i
 
 Code
 
+- Hunting Party
+  - Confettis quand un raccoon est shooté ou quand saturation
+  - Possibilité de shooter les raccoons
+  - Leaderboard
 - Double check l'accessibilité
 - Test de composants / Storybook ?
 
