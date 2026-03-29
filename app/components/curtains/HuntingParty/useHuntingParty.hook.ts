@@ -1,13 +1,14 @@
-import { useState, type RefObject } from 'react'
+import { useCallback, useState, type RefObject } from 'react'
 import { useInterval } from 'usehooks-ts'
 import { randInt } from '~/utils/number'
 
-const INITIAL_TICKS = 25
+const GAME_TICKS = 25
 const SPAWN_INTERVAL = 1000
 const SATURATION_FACTOR = 0.8
 const SATURATION_CHECK_INTERVAL = 1000
 const MIN_RADIUS = 20
 const MAX_RADIUS = 100
+const DISAPPEARING_COUNTDOWN_START = 500
 
 export interface Target {
 	id: number
@@ -16,6 +17,7 @@ export interface Target {
 	vx: number
 	vy: number
 	radius: number
+	disappearingCountdown: number | null
 }
 
 const INITIAL_TARGETS: Array<Target> = []
@@ -29,7 +31,22 @@ export const useHuntingParty = (ref: RefObject<HTMLDivElement | null>) => {
 		const containerHeight = ref.current?.offsetHeight || 0
 
 		setTargets((prevTargets) => {
-			const bounded = prevTargets.map((target) => {
+			const disappeared = prevTargets.reduce((acc: Array<Target>, target) => {
+				const newTarget = structuredClone(target)
+
+				if (newTarget.disappearingCountdown !== null) {
+					newTarget.disappearingCountdown -= GAME_TICKS
+
+					if (newTarget.disappearingCountdown <= 0) {
+						return acc
+					}
+				}
+
+				acc.push(newTarget)
+				return acc
+			}, [])
+
+			const bounded = disappeared.map((target) => {
 				const newTarget = structuredClone(target)
 
 				newTarget.x += newTarget.vx
@@ -64,10 +81,13 @@ export const useHuntingParty = (ref: RefObject<HTMLDivElement | null>) => {
 
 			// Check for collisions between targets
 			const collisioned = bounded.map((target) => {
+				if (target.disappearingCountdown !== null) return target
+
 				const newTarget = structuredClone(target)
 
 				for (const other of bounded) {
 					if (other.id === target.id) continue
+					if (other.disappearingCountdown !== null) continue
 
 					const dx = other.x - target.x
 					const dy = other.y - target.y
@@ -95,7 +115,7 @@ export const useHuntingParty = (ref: RefObject<HTMLDivElement | null>) => {
 
 			return collisioned
 		})
-	}, INITIAL_TICKS)
+	}, GAME_TICKS)
 
 	// Spawn new targets at intervals
 	useInterval(() => {
@@ -148,11 +168,13 @@ export const useHuntingParty = (ref: RefObject<HTMLDivElement | null>) => {
 			vx: randInt(-10, 10),
 			vy: randInt(-10, 10),
 			radius: radius,
+			disappearingCountdown: null,
 		}
 
 		setTargets((prevTargets) => [...prevTargets, newTarget])
 	}, SPAWN_INTERVAL)
 
+	// Reset targets if saturation is reached
 	useInterval(() => {
 		if (targets.length === 0) return
 
@@ -166,9 +188,36 @@ export const useHuntingParty = (ref: RefObject<HTMLDivElement | null>) => {
 		}, 0)
 
 		if (usedSurface >= containerSurface * SATURATION_FACTOR) {
-			setTargets(INITIAL_TARGETS)
+			setTargets((targets) =>
+				targets.map((target) => ({
+					...target,
+					disappearingCountdown: DISAPPEARING_COUNTDOWN_START,
+				})),
+			)
+			// setTargets(INITIAL_TARGETS)
 		}
 	}, SATURATION_CHECK_INTERVAL)
 
-	return { targets }
+	// Hunt a target
+	const handleTargetClick = useCallback((id: number) => {
+		setTargets((prevTargets) =>
+			prevTargets.map((target) => {
+				if (target.id !== id) return target
+				if (target.disappearingCountdown !== null) return target
+
+				const newTarget = structuredClone(target)
+				newTarget.disappearingCountdown = DISAPPEARING_COUNTDOWN_START
+
+				return newTarget
+			}),
+		)
+	}, [])
+
+	// Get visibility percentage of a target
+	const getVisibilityPercentage = useCallback((target: Target): number => {
+		if (target.disappearingCountdown === null) return 100
+		return (target.disappearingCountdown * 100) / DISAPPEARING_COUNTDOWN_START
+	}, [])
+
+	return { targets, handleTargetClick, getVisibility: getVisibilityPercentage }
 }

@@ -23,7 +23,7 @@ const getSpinSpeed = (target: Target): string => {
 export const HuntingParty: FC<HuntingPartyProps> = () => {
 	const veilRef = useRef<HTMLDivElement>(null)
 
-	const { targets } = useHuntingParty(veilRef)
+	const { targets, handleTargetClick, getVisibility } = useHuntingParty(veilRef)
 
 	return (
 		<div className={cx('veil')} ref={veilRef}>
@@ -36,7 +36,12 @@ export const HuntingParty: FC<HuntingPartyProps> = () => {
 						top: target.y - target.radius,
 						width: target.radius * 2,
 						[CSS_VAR_SPIN_SPEED]: getSpinSpeed(target),
+						opacity:
+							target.disappearingCountdown !== null
+								? getVisibility(target) / 100
+								: 1,
 					}}
+					onClick={() => handleTargetClick(target.id)}
 				/>
 			))}
 		</div>
