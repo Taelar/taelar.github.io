@@ -8,7 +8,7 @@ const SATURATION_FACTOR = 0.8
 const SATURATION_CHECK_INTERVAL = 1000
 const MIN_RADIUS = 20
 const MAX_RADIUS = 100
-const DISAPPEARING_COUNTDOWN_START = 500
+const DISAPPEARING_COUNTDOWN_START = 1000
 
 export interface Target {
 	id: number
@@ -191,10 +191,10 @@ export const useHuntingParty = (ref: RefObject<HTMLDivElement | null>) => {
 			setTargets((targets) =>
 				targets.map((target) => ({
 					...target,
-					disappearingCountdown: DISAPPEARING_COUNTDOWN_START,
+					disappearingCountdown:
+						target.disappearingCountdown ?? DISAPPEARING_COUNTDOWN_START,
 				})),
 			)
-			// setTargets(INITIAL_TARGETS)
 		}
 	}, SATURATION_CHECK_INTERVAL)
 
@@ -207,17 +207,13 @@ export const useHuntingParty = (ref: RefObject<HTMLDivElement | null>) => {
 
 				const newTarget = structuredClone(target)
 				newTarget.disappearingCountdown = DISAPPEARING_COUNTDOWN_START
+				newTarget.vx = 0
+				newTarget.vy = 0
 
 				return newTarget
 			}),
 		)
 	}, [])
 
-	// Get visibility percentage of a target
-	const getVisibilityPercentage = useCallback((target: Target): number => {
-		if (target.disappearingCountdown === null) return 100
-		return (target.disappearingCountdown * 100) / DISAPPEARING_COUNTDOWN_START
-	}, [])
-
-	return { targets, handleTargetClick, getVisibility: getVisibilityPercentage }
+	return { targets, handleTargetClick }
 }
