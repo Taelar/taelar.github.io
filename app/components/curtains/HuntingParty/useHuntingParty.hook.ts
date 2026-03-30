@@ -10,43 +10,49 @@ const MIN_RADIUS = 20
 const MAX_RADIUS = 100
 const DISAPPEARING_COUNTDOWN_START = 1000
 
-export interface Target {
+interface Element {
 	id: number
 	x: number
 	y: number
+	radius: number
+}
+
+export interface Target extends Element {
 	vx: number
 	vy: number
-	radius: number
-	disappearingCountdown: number | null
+}
+
+export interface DispearingTarget extends Element {
+	disappearingCountdown: number
 }
 
 const INITIAL_TARGETS: Array<Target> = []
+const INITIAL_DISAPPEARINGS: Array<DispearingTarget> = []
 
 export const useHuntingParty = (ref: RefObject<HTMLDivElement | null>) => {
 	const [targets, setTargets] = useState<Array<Target>>(INITIAL_TARGETS)
+	const [disappearings, setDisappearings] = useState(INITIAL_DISAPPEARINGS)
 
 	// Update position and check for boundary collisions
 	useInterval(() => {
 		const containerWidth = ref.current?.offsetWidth || 0
 		const containerHeight = ref.current?.offsetHeight || 0
 
-		setTargets((prevTargets) => {
-			const disappeared = prevTargets.reduce((acc: Array<Target>, target) => {
+		setDisappearings((prevDisappearings) =>
+			prevDisappearings.reduce((acc: Array<DispearingTarget>, target) => {
 				const newTarget = structuredClone(target)
+				newTarget.disappearingCountdown -= GAME_TICKS
 
-				if (newTarget.disappearingCountdown !== null) {
-					newTarget.disappearingCountdown -= GAME_TICKS
-
-					if (newTarget.disappearingCountdown <= 0) {
-						return acc
-					}
+				if (newTarget.disappearingCountdown > 0) {
+					acc.push(newTarget)
 				}
 
-				acc.push(newTarget)
 				return acc
-			}, [])
+			}, []),
+		)
 
-			const bounded = disappeared.map((target) => {
+		setTargets((prevTargets) => {
+			const bounded = prevTargets.map((target) => {
 				const newTarget = structuredClone(target)
 
 				newTarget.x += newTarget.vx
@@ -81,13 +87,10 @@ export const useHuntingParty = (ref: RefObject<HTMLDivElement | null>) => {
 
 			// Check for collisions between targets
 			const collisioned = bounded.map((target) => {
-				if (target.disappearingCountdown !== null) return target
-
 				const newTarget = structuredClone(target)
 
 				for (const other of bounded) {
 					if (other.id === target.id) continue
-					if (other.disappearingCountdown !== null) continue
 
 					const dx = other.x - target.x
 					const dy = other.y - target.y
@@ -168,7 +171,6 @@ export const useHuntingParty = (ref: RefObject<HTMLDivElement | null>) => {
 			vx: randInt(-10, 10),
 			vy: randInt(-10, 10),
 			radius: radius,
-			disappearingCountdown: null,
 		}
 
 		setTargets((prevTargets) => [...prevTargets, newTarget])
@@ -188,32 +190,44 @@ export const useHuntingParty = (ref: RefObject<HTMLDivElement | null>) => {
 		}, 0)
 
 		if (usedSurface >= containerSurface * SATURATION_FACTOR) {
-			setTargets((targets) =>
+			setTargets(INITIAL_TARGETS)
+			setDisappearings(
 				targets.map((target) => ({
-					...target,
-					disappearingCountdown:
-						target.disappearingCountdown ?? DISAPPEARING_COUNTDOWN_START,
+					id: target.id,
+					x: target.x,
+					y: target.y,
+					radius: target.radius * 2,
+					disappearingCountdown: DISAPPEARING_COUNTDOWN_START,
 				})),
 			)
 		}
 	}, SATURATION_CHECK_INTERVAL)
 
 	// Hunt a target
-	const handleTargetClick = useCallback((id: number) => {
-		setTargets((prevTargets) =>
-			prevTargets.map((target) => {
-				if (target.id !== id) return target
-				if (target.disappearingCountdown !== null) return target
+	const handleTargetClick = useCallback(
+		(id: number, event: React.MouseEvent) => {
+			const target = targets.find((t) => t.id === id)
+			if (!target) return
 
-				const newTarget = structuredClone(target)
-				newTarget.disappearingCountdown = DISAPPEARING_COUNTDOWN_START
-				newTarget.vx = 0
-				newTarget.vy = 0
+			const mouseX = event.clientX
+			const mouseY = event.clientY
 
-				return newTarget
-			}),
-		)
-	}, [])
+			const newDisappearing: DispearingTarget = {
+				id: Date.now(),
+				x: mouseX ?? target.x,
+				y: mouseY ?? target.y,
+				radius: target.radius * 2,
+				disappearingCountdown: DISAPPEARING_COUNTDOWN_START,
+			}
 
-	return { targets, handleTargetClick }
+			setTargets((prevTargets) =>
+				prevTargets.filter((target) => target.id !== id),
+			)
+
+			setDisappearings((prev) => [...prev, newDisappearing])
+		},
+		[targets],
+	)
+
+	return { targets, disappearings, handleTargetClick }
 }

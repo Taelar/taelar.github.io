@@ -26,39 +26,39 @@ const confettisSrc = `${confettiAnimation}#t=0.3`
 export const HuntingParty: FC<HuntingPartyProps> = () => {
 	const veilRef = useRef<HTMLDivElement>(null)
 
-	const { targets, handleTargetClick } = useHuntingParty(veilRef)
+	const { targets, disappearings, handleTargetClick } = useHuntingParty(veilRef)
 
 	return (
 		<div className={cx('veil')} ref={veilRef}>
-			{targets.map((target) =>
-				target.disappearingCountdown === null ? (
-					<InnocentTarget
-						key={target.id}
-						className={cx('target')}
-						style={{
-							left: target.x - target.radius,
-							top: target.y - target.radius,
-							width: target.radius * 2,
-							[CSS_VAR_SPIN_SPEED]: getSpinSpeed(target),
-						}}
-						onClick={() => handleTargetClick(target.id)}
-					/>
-				) : (
-					<video
-						key={target.id}
-						autoPlay
-						muted
-						className={cx('conffeti')}
-						style={{
-							left: target.x - target.radius * 2,
-							top: target.y - target.radius * 2,
-							width: target.radius * 4,
-						}}
-					>
-						<source src={confettisSrc} type="video/webm" />
-					</video>
-				),
-			)}
+			{targets.map((target) => (
+				<InnocentTarget
+					key={target.id}
+					className={cx('target')}
+					style={{
+						left: target.x - target.radius,
+						top: target.y - target.radius,
+						width: target.radius * 2,
+						[CSS_VAR_SPIN_SPEED]: getSpinSpeed(target),
+					}}
+					onClick={(event) => handleTargetClick(target.id, event)}
+				/>
+			))}
+			{disappearings.map((target) => (
+				<video
+					key={target.id}
+					autoPlay
+					muted
+					preload="auto"
+					className={cx('conffeti')}
+					style={{
+						left: target.x - target.radius,
+						top: target.y - target.radius,
+						width: target.radius * 2,
+					}}
+				>
+					<source src={confettisSrc} type="video/webm" />
+				</video>
+			))}
 		</div>
 	)
 }
