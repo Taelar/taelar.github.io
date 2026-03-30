@@ -2,7 +2,6 @@
 
 .header {
 	position: absolute;
-	z-index: $zIndexHeaderFooter;
 	left: 15px;
 
 	display: flex;
@@ -23,6 +22,10 @@
 		.backgroundSelect {
 			display: none;
 		}
+	}
+
+	> * {
+		z-index: $zIndexHeaderFooter;
 	}
 }
 

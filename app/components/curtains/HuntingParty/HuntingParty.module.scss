@@ -8,7 +8,9 @@
 	left: 0;
 	z-index: $zIndexCurtains;
 
-	cursor: crosshair;
+	cursor:
+		url('./assets/crosshair.svg') 32 32,
+		crosshair;
 }
 
 .target {
