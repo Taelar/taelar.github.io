@@ -1,4 +1,4 @@
-import { useRef, type FC } from 'react'
+import React, { useRef, type FC } from 'react'
 import styles from './HuntingParty.module.scss'
 import classNames from 'classnames/bind'
 import { useHuntingParty, type Target } from './useHuntingParty.hook'
@@ -54,6 +54,7 @@ export const HuntingParty: FC<HuntingPartyProps> = () => {
 						left: target.x - target.radius,
 						top: target.y - target.radius,
 						width: target.radius * 2,
+						display: target.disappearingCountdown === null ? 'none' : undefined,
 					}}
 				>
 					<source src={confettisSrc} type="video/webm" />
