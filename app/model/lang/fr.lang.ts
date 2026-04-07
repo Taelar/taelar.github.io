@@ -27,7 +27,9 @@ export const LANG_FILE_FR = {
 				title: 'Consultation',
 			},
 			huntingParty: {
-				title: 'Click Party',
+				title: 'Hunting Party',
+				score: 'Score',
+				killstreak: 'Série',
 			},
 		},
 	},

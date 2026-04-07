@@ -33,6 +33,9 @@ export const useHuntingParty = (ref: RefObject<HTMLDivElement | null>) => {
 	const [targets, setTargets] = useState<Array<Target>>(INITIAL_TARGETS)
 	const [disappearings, setDisappearings] = useState(INITIAL_DISAPPEARINGS)
 
+	const [score, setScore] = useState(0)
+	const [killstreak, setKillstreak] = useState(0)
+
 	const spawnTarget = useCallback((x: number, y: number, radius: number) => {
 		const newTarget: Target = {
 			id: Date.now(),
@@ -228,8 +231,10 @@ export const useHuntingParty = (ref: RefObject<HTMLDivElement | null>) => {
 	}, SATURATION_CHECK_INTERVAL)
 
 	// Hunt a target
-	const handleTargetClick = useCallback(
+	const onTargetClick = useCallback(
 		(id: number, event: React.MouseEvent) => {
+			event.stopPropagation() // Prevent triggering onClickVeil
+
 			const target = targets.find((t) => t.id === id)
 			if (!target) return
 
@@ -252,9 +257,23 @@ export const useHuntingParty = (ref: RefObject<HTMLDivElement | null>) => {
 					}
 				}),
 			)
+
+			setScore((prev) => prev + 1)
+			setKillstreak((prev) => prev + 1)
 		},
 		[targets],
 	)
 
-	return { targets, disappearings, handleTargetClick }
+	const onClickVeil = useCallback(() => {
+		setKillstreak(0)
+	}, [])
+
+	return {
+		targets,
+		disappearings,
+		onTargetClick,
+		onClickVeil,
+		score,
+		killstreak,
+	}
 }

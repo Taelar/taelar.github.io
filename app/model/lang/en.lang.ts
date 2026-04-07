@@ -29,7 +29,9 @@ export const LANG_FILE_EN: LangFile = {
 				title: 'Visualisation',
 			},
 			huntingParty: {
-				title: 'Click Party',
+				title: 'Hunting Party',
+				score: 'Score',
+				killstreak: 'Killstreak',
 			},
 		},
 	},

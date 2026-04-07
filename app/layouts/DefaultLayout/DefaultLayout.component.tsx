@@ -129,7 +129,9 @@ const DefaultLayout: FC = () => {
 			<main className={styles['main']}>
 				<Outlet />
 			</main>
-			{searchParams.curtain === 'huntingParty' && <HuntingParty />}
+			{searchParams.curtain === 'huntingParty' && (
+				<HuntingParty langFile={langFile} />
+			)}
 		</LangContext>
 	)
 }
