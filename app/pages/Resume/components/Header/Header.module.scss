@@ -19,6 +19,7 @@
 		font-size: 86px;
 		font-weight: 700;
 		line-height: 0.9;
+		text-shadow: 1px 1px 50px $darkBlue;
 
 		@container (max-width: #{$breakpointSmallLayout}) {
 			font-size: 64px;
